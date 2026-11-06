@@ -16,6 +16,6 @@ window.CRX_CONFIG = {
   WHATSAPP: '528992179269',
   PHONE: '8992179269',
   // Quién atiende, mientras no marques a alguien con "Mostrar en el sitio" en Panel > Equipo:
-  CONTACT_NAME: 'Moisés Cruz',
+  CONTACT_NAME: 'Lic. Sabino Cruz',
   CONTACT_ROLE: 'Asesor inmobiliario'
 };

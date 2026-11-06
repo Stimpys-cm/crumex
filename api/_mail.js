@@ -30,6 +30,8 @@ const PAYLOAD_LABELS = { operacion: 'Operación', tipo: 'Tipo', zona: 'Zona', m2
   m2_terreno: 'Terreno (m²)', precio_esperado: 'Precio esperado', desocupada: 'Desocupada', amueblada: 'Amueblada', anunciada: 'Ya anunciada', adeudos: 'Adeudos o crédito', estimado: 'Rango de referencia',
   busqueda: 'Responde a', recomendado_por: 'Recomendado por', recomendante_tel: 'Tel. de quien recomienda', origen_captacion: 'Origen', canal: 'Llegó desde', campana: 'Campaña' };
 const HIDE = ['tipo_clave', 'consentimiento'];
+// teléfono con lada para mostrar: 10 dígitos sin lada = México
+const fmtPh = (x) => { const t = String(x || '').trim(); const d = t.replace(/\D/g, ''); if (t.startsWith('+')) return t; if (d.length === 10) return `+52 ${d.slice(0, 3)} ${d.slice(3, 6)} ${d.slice(6)}`; if (d.length === 12 && d.startsWith('52')) return `+52 ${d.slice(2, 5)} ${d.slice(5, 8)} ${d.slice(8)}`; return t; };
 const waUrl = (phone) => { let d = String(phone || '').replace(/\D/g, ''); if (d.length === 10) d = '52' + d; return d.length >= 11 ? `https://wa.me/${d}` : ''; };
 
 // Aviso de prospecto nuevo. Nunca rompe el guardado: si falla, solo se registra.
@@ -47,11 +49,11 @@ export async function notifyLead(r, prop, base, advisor) {
   const subject = `Nuevo prospecto: ${r.full_name} · ${kind}`;
   if (advisor) extra.push(['Asignado a', advisor.full_name || advisor.email]);
   if (r.channel && r.channel !== 'Directo') extra.push(['Llegó desde', r.channel + (r.origin && r.origin.campaign ? ` (${r.origin.campaign})` : '')]);
-  const lines = [`Nuevo prospecto · ${kind}`, `Nombre: ${r.full_name}`, `Teléfono: ${r.phone}`, r.email ? `Correo: ${r.email}` : '', prop ? `Propiedad: ${prop.ref_code} · ${prop.title}` : '', ...extra.map(([k, v]) => `${k}: ${v}`), r.message ? `\nMensaje:\n${String(r.message).slice(0, 1200)}` : '', '', wa ? `WhatsApp: ${wa}` : '', `Panel: ${panel}`].filter((x) => x !== '');
+  const lines = [`Nuevo prospecto · ${kind}`, `Nombre: ${r.full_name}`, `Teléfono: ${fmtPh(r.phone)}`, r.email ? `Correo: ${r.email}` : '', prop ? `Propiedad: ${prop.ref_code} · ${prop.title}` : '', ...extra.map(([k, v]) => `${k}: ${v}`), r.message ? `\nMensaje:\n${String(r.message).slice(0, 1200)}` : '', '', wa ? `WhatsApp: ${wa}` : '', `Panel: ${panel}`].filter((x) => x !== '');
   const html = `<div style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#1B2533;max-width:560px">
     <p style="margin:0 0 4px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#1A529A;font-weight:bold">INMOBILIARIA CRUMEX · ${esc(kind)}</p>
     <h2 style="margin:0 0 14px;color:#0E1E33">${esc(r.full_name)}</h2>
-    <table style="border-collapse:collapse;width:100%">${[['Teléfono', esc(r.phone)], r.email ? ['Correo', esc(r.email)] : null, prop ? ['Propiedad', `<a href="${esc(propLink)}">${esc(prop.ref_code)} · ${esc(prop.title)}</a>`] : null, ...extra.map(([k, v]) => [esc(k), esc(v)])].filter(Boolean).map(([k, v]) => `<tr><td style="padding:6px 0;color:#536074;width:150px;vertical-align:top">${k}</td><td style="padding:6px 0">${v}</td></tr>`).join('')}</table>
+    <table style="border-collapse:collapse;width:100%">${[['Teléfono', esc(fmtPh(r.phone))], r.email ? ['Correo', esc(r.email)] : null, prop ? ['Propiedad', `<a href="${esc(propLink)}">${esc(prop.ref_code)} · ${esc(prop.title)}</a>`] : null, ...extra.map(([k, v]) => [esc(k), esc(v)])].filter(Boolean).map(([k, v]) => `<tr><td style="padding:6px 0;color:#536074;width:150px;vertical-align:top">${k}</td><td style="padding:6px 0">${v}</td></tr>`).join('')}</table>
     ${r.message ? `<p style="margin:14px 0;padding:12px 14px;background:#F4F5F7;border-radius:8px;white-space:pre-wrap">${esc(String(r.message).slice(0, 1200))}</p>` : ''}
     <p style="margin:18px 0">${wa ? `<a href="${esc(wa)}" style="background:#128045;color:#fff;padding:11px 18px;border-radius:30px;text-decoration:none;font-weight:bold">Escribir por WhatsApp</a> &nbsp; ` : ''}<a href="${esc(panel)}" style="color:#0E1E33;font-weight:bold">Abrir el panel</a></p>
     <p style="font-size:12px;color:#536074">Recibido ${esc(new Date(r.created_at || Date.now()).toLocaleString('es-MX', { timeZone: 'America/Matamoros' }))}. Responder rápido aumenta mucho la probabilidad de cerrar.</p></div>`;
@@ -79,9 +81,9 @@ export async function replyToLead(r, prop, conf, base) {
     <h2 style="margin:0 0 12px;color:#0E1E33">Hola ${esc(first)}, gracias por escribirnos</h2>
     <p>Recibimos ${esc(what)}. ${esc(next)}${esc(when)}</p>
     <p style="margin:18px 0">${wa ? `<a href="${esc(wa)}" style="background:#128045;color:#fff;padding:11px 18px;border-radius:30px;text-decoration:none;font-weight:bold">Escribir por WhatsApp</a> &nbsp; ` : ''}<a href="${esc(owner ? base + '/vender.html' : link)}" style="color:#0E1E33;font-weight:bold">${owner ? 'Cómo trabajamos con propietarios' : prop ? 'Ver la propiedad' : 'Ver el catálogo'}</a></p>
-    ${conf && conf.phone ? `<p style="font-size:13px;color:#536074">Teléfono: ${esc(conf.phone)}</p>` : ''}
+    ${conf && conf.phone ? `<p style="font-size:13px;color:#536074">Teléfono: ${esc(fmtPh(conf.phone))}</p>` : ''}
     <p style="font-size:12px;color:#536074">Te escribimos porque dejaste tu correo en nuestro sitio. Si no fuiste tú, ignora este mensaje.</p></div>`;
-  const text = `Hola ${first}, gracias por escribirnos.\n\nRecibimos ${what}. ${next}${when}\n${wa ? '\nWhatsApp: ' + wa : ''}${conf && conf.phone ? '\nTeléfono: ' + conf.phone : ''}\n\nINMOBILIARIA CRUMEX`;
+  const text = `Hola ${first}, gracias por escribirnos.\n\nRecibimos ${what}. ${next}${when}\n${wa ? '\nWhatsApp: ' + wa : ''}${conf && conf.phone ? '\nTeléfono: ' + fmtPh(conf.phone) : ''}\n\nINMOBILIARIA CRUMEX`;
   const replyTo = (conf && conf.email) || String(process.env.AVISO_EMAIL_TO || '').split(',')[0].trim() || undefined;
   return Promise.race([sendEmail({ to: r.email, subject, html, text, reply_to: replyTo }), new Promise((ok) => setTimeout(() => ok(false), 4500))]);
 }

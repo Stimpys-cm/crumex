@@ -25,13 +25,14 @@
     if (isOwn(m2)) bits.push(`${fmtN(m2)} m²`);
     if (p.type === 'nave' && isOwn(a.andenes)) bits.push(`${a.andenes} andenes`);
     const extra = p.operation === 'renta' ? (a.amueblado === 'si' ? 'Amueblada' : a.mascotas === 'si' ? 'Acepta mascotas' : '') : ((a.creditos || []).includes('infonavit') ? 'Acepta Infonavit' : '');
-    const ph = L.fmtPh(s.phone || s.whatsapp);
+    // la lada va chica arriba del número para que el número se lea de lejos: +52 / 899 217 9269
+    const pp = CRX.phone.parse(s.phone || s.whatsapp) || { code: '', national: '' };
     $('#lt').innerHTML = `<div class="lt-sheet">
       <div class="lt-main">
         <h1 class="lt-op">${p.operation === 'renta' ? 'SE RENTA' : 'SE VENDE'}</h1>
         <p class="lt-what">${esc(CRX.TYPES[p.type] || '')}${bits.length ? ' · ' + esc(bits.join(' · ')) : ''}</p>
         ${extra ? `<p class="lt-extra">${esc(extra)}</p>` : ''}
-        <p class="lt-phone">${esc(ph)}</p>
+        <p class="lt-phone">${pp.code ? `<span class="lt-cc">+${esc(pp.code)}</span>` : ''}${esc(CRX.phone.group(pp.national))}</p>
         <p class="lt-wa">Llama o escribe por WhatsApp</p>
       </div>
       <div class="lt-side">

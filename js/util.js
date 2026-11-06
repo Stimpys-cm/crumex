@@ -74,7 +74,8 @@
 
   CRX.waLink = (text) => {
     const n = (CRX.settings && CRX.settings.whatsapp) || window.CRX_CONFIG.WHATSAPP;
-    return 'https://wa.me/' + String(n).replace(/\D/g, '') + (text ? '?text=' + encodeURIComponent(text) : '');
+    const d = CRX.phone ? CRX.phone.digits(n) : String(n).replace(/\D/g, '');
+    return 'https://wa.me/' + d + (text ? '?text=' + encodeURIComponent(text) : '');
   };
 
   CRX.mapsLink = (q) => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q + ', Reynosa, Tamaulipas');

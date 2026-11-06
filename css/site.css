@@ -1069,7 +1069,7 @@ dl.det.legal-co{margin:0 0 16px}
 /* ═══════════════════════════ Ronda 14 · "Plano de Reynosa" ═══════════════════════════
    La página como una hoja de planos: campos azul marino con retícula de dibujo técnico,
    una cota (línea de medida) con las coordenadas de Reynosa en la portada, y fichas
-   blancas como papel. Títulos en Bodoni Moda; texto, datos y etiquetas en Archivo. */
+   blancas como papel. Títulos en Roboto Slab (serif de bloque); texto, datos y etiquetas en Archivo. */
 :root{
   --ink:#141D2B; --paper:#F4F6F9; --navy-deep:#0A1729;
   --grid-minor:rgba(158,195,236,.07); --grid-major:rgba(158,195,236,.11);
@@ -1078,11 +1078,11 @@ dl.det.legal-co{margin:0 0 16px}
   --plano:var(--noise),linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid-minor) 1px,transparent 1px),linear-gradient(90deg,var(--grid-minor) 1px,transparent 1px);
 }
 
-/* ─── tipografía: Bodoni para titulares, Archivo para todo lo que se lee o se compara ─── */
+/* ─── tipografía: Roboto Slab para titulares, Archivo para todo lo que se lee o se compara ─── */
 body{font-family:var(--sans);color:var(--ink);font-size:16.5px;line-height:1.62}
-h1,h2{font-family:var(--display);font-weight:500;letter-spacing:-.015em;color:var(--navy)}
+h1,h2{font-family:var(--display);font-weight:700;letter-spacing:-.02em;color:var(--navy)}
 h3,h4{font-family:var(--sans);font-weight:700;letter-spacing:-.005em}
-.sec-h h2,.why-h h2,.two>div>h2,.about-t>h2,.ot-in h2{font-size:clamp(2.15rem,4.5vw,3.45rem);line-height:1.02;font-weight:500}
+.sec-h h2,.why-h h2,.two>div>h2,.about-t>h2,.ot-in h2{font-size:clamp(2rem,4.2vw,3.2rem);line-height:1.06;font-weight:700}
 .gcard h2{font-size:clamp(1.35rem,2vw,1.6rem);line-height:1.12}
 .card-b h3,.steps h3,.values h3,.art h3,#articles .art h3,.benefit h3,.want h3,.g-help h3,.g-more h3,.wiz-done h3,.g-pdf h3,.who-t b,.zc-b b,.ot-empty b,.teaser b{font-family:var(--sans);font-weight:700;letter-spacing:-.005em}
 .price,.hero-stats b,.calc-out strong,.rm-stats b,.o-r-val,.pin b,.done b,.greviews b,.ftr .ftr-phone,.tile b,.hcard b,.steps .n,.z-sub{font-family:var(--sans);font-weight:800;letter-spacing:-.015em;font-variant-numeric:tabular-nums}
@@ -1093,7 +1093,7 @@ h3,h4{font-family:var(--sans);font-weight:700;letter-spacing:-.005em}
 .sec-kicker{margin:0 0 14px;color:var(--acctx)}
 .btn{font-family:var(--sans);font-weight:650;letter-spacing:.005em}
 .btn-lg{min-height:54px;padding:0 26px;font-size:1.02rem;gap:10px}
-.logo-t span{font-family:var(--serif);font-weight:600;letter-spacing:.04em}
+.logo-t span{font-family:var(--serif);font-weight:700;letter-spacing:.02em}
 .logo-t small{font-stretch:118%}
 .subnav a{font-weight:500}
 
@@ -1109,7 +1109,7 @@ h3,h4{font-family:var(--sans);font-weight:700;letter-spacing:-.005em}
 .hero-plano .hero-grid{grid-template-columns:minmax(0,1.5fr) minmax(320px,1fr);gap:64px;align-items:end}
 .hero-plano .hero-copy{max-width:none}
 .hero-plano .hero-kicker{color:var(--acc2);margin:0 0 18px}
-.hero-plano h1{font:520 clamp(2.75rem,6.7vw,5.7rem)/.96 var(--display);letter-spacing:-.025em;color:#fff;max-width:11.5ch;margin:0 0 24px}
+.hero-plano h1{font:700 clamp(2.6rem,6.2vw,5.2rem)/1.02 var(--display);letter-spacing:-.025em;color:#fff;max-width:11.5ch;margin:0 0 24px}
 .hero-plano .lead{font-size:clamp(1.08rem,1.6vw,1.24rem);line-height:1.55;color:#C9D5E4;max-width:44ch;margin:6px 0 0}
 .hero-plano .hero-cta{margin-top:30px;gap:12px}
 .hero-plano .hero-types{margin-top:30px}
@@ -1141,7 +1141,7 @@ h3,h4{font-family:var(--sans);font-weight:700;letter-spacing:-.005em}
   .cota{margin-bottom:22px}
 }
 @media(max-width:560px){
-  .hero-plano h1{font-size:clamp(2.7rem,12vw,3.4rem);line-height:.98}
+  .hero-plano h1{font-size:clamp(2.5rem,11vw,3.1rem);line-height:1.04}
   .hero-plano .hero-cta .btn{width:100%;justify-content:center}
   .cota-t{font-size:.66rem;letter-spacing:.04em}
 }
@@ -1156,7 +1156,7 @@ h3,h4{font-family:var(--sans);font-weight:700;letter-spacing:-.005em}
 .ledger>div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:28px;padding:30px 0 32px;border-bottom:1px solid var(--line2)}
 .ledger dt{color:var(--acctx);padding-top:.85em}
 .ledger dd{margin:0;display:grid;gap:10px;justify-items:start}
-.ledger strong{font:500 clamp(1.65rem,3vw,2.4rem)/1.06 var(--display);letter-spacing:-.015em;color:var(--navy)}
+.ledger strong{font:700 clamp(1.5rem,2.7vw,2.15rem)/1.12 var(--display);letter-spacing:-.02em;color:var(--navy)}
 .ledger span{color:var(--mut);font-size:1.02rem;max-width:52ch}
 @media(max-width:900px){.why{grid-template-columns:minmax(0,1fr);gap:30px}.why-h{position:static}.ledger>div{grid-template-columns:minmax(0,1fr);gap:8px;padding:22px 0 24px}.ledger dt{padding:0}}
 
@@ -1180,7 +1180,7 @@ h3,h4{font-family:var(--sans);font-weight:700;letter-spacing:-.005em}
 
 /* ─── llamada final ─── */
 .final-cta .two{align-items:center;gap:56px}
-.fc-copy h2{font-size:clamp(2.3rem,5vw,3.9rem);line-height:1;margin:0 0 18px;max-width:12ch}
+.fc-copy h2{font-size:clamp(2.2rem,4.6vw,3.5rem);line-height:1.05;margin:0 0 18px;max-width:12ch}
 .fc-lead{font-size:1.12rem;font-weight:300;max-width:40ch;margin:0 0 26px}
 .final-cta .contact-list{margin-top:30px}
 .final-cta .contact-list li{border-bottom-color:rgba(158,195,236,.18)}
@@ -1193,14 +1193,14 @@ h3,h4{font-family:var(--sans);font-weight:700;letter-spacing:-.005em}
 /* ─── pie: marino liso y más profundo, para que no se confunda con la llamada final ─── */
 .ftr{background:#081325;border-top:1px solid rgba(158,195,236,.14)}
 .ftr .ftr-h,.ftr h4{font-family:var(--sans);font-weight:700;font-size:.92rem;letter-spacing:0;color:#fff}
-.ftr-logo{font-family:var(--serif);font-weight:600;letter-spacing:.03em}
+.ftr-logo{font-family:var(--serif);font-weight:700;letter-spacing:.02em}
 
 /* ─── 404: el número decorativo no se encima en el título ─── */
 .nf .n::before{font-family:var(--sans);font-weight:800;letter-spacing:-.04em}
 .nf .n{font-family:var(--sans);line-height:1;margin-bottom:10px}
 
 /* ─── encabezados de página ─── */
-.page-hero h1{font:500 clamp(2.3rem,5vw,3.8rem)/1 var(--display);letter-spacing:-.02em}
+.page-hero h1{font:700 clamp(2.2rem,4.8vw,3.5rem)/1.05 var(--display);letter-spacing:-.025em}
 
 /* ─── movimiento: una entrada orquestada en la portada (solo CSS, sin parpadeo) y revelados suaves al bajar ─── */
 @keyframes crx-rise{from{opacity:0;transform:translate3d(0,18px,0)}to{opacity:1;transform:none}}
@@ -1217,3 +1217,7 @@ h3,h4{font-family:var(--sans);font-weight:700;letter-spacing:-.005em}
   html.mv .rv.rv-on{opacity:1;transform:none;transition:opacity .7s var(--ease-out) var(--rd,0ms),transform .85s var(--ease-out) var(--rd,0ms)}
 }
 @media print{html.mv .rv,[data-in]{opacity:1!important;transform:none!important;animation:none!important}}
+/* el letrero de "sin fotos" ahora lleva la lada: un poco más chico para que quepa en tarjetas angostas */
+.sign{max-width:92%}
+.sign small{font-size:.8rem}
+.sign.lg small{font-size:1.05rem}

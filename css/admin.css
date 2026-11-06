@@ -409,11 +409,11 @@ tr.imp-err td{background:#fdf3f2}tr.imp-err small{color:var(--err)}tr.imp-dup td
 .fb-view{gap:12px;flex-wrap:wrap}.fb-view b{color:var(--acc);letter-spacing:1px}
 .copy-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.copy-row input{flex:1;min-width:220px}
 
-/* Ronda 14: tipografía del panel. Bodoni solo en el título de cada vista y en el logotipo; lo demás en Archivo. */
+/* Ronda 14: tipografía del panel. Roboto Slab solo en el título de cada vista y en el logotipo; lo demás en Archivo. */
 h2,h3,h4,.dlg-head h3{font-family:var(--sans);font-weight:700;letter-spacing:-.005em}
-#view-title,.lc-title{font-family:var(--display);font-weight:500;letter-spacing:-.01em}
+#view-title,.lc-title{font-family:var(--display);font-weight:700;letter-spacing:-.015em}
 .kpi b,.pr,.visit time,.pv-price,.toplist li::before,.who .av,.act-av,.prose h2{font-family:var(--sans);font-weight:800;font-variant-numeric:tabular-nums}
 .prose h2{font-weight:700}
-.side-logo strong{font-family:var(--serif);font-weight:600;letter-spacing:.03em}
+.side-logo strong{font-family:var(--serif);font-weight:700;letter-spacing:.02em}
 .login-side{background:radial-gradient(70% 90% at 100% 100%,rgba(29,91,166,.42),transparent 62%),linear-gradient(180deg,#0E1E33,#0A1729)}
-.ls-name{font-family:var(--serif);font-weight:600}
+.ls-name{font-family:var(--serif);font-weight:700}

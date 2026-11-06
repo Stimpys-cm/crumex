@@ -130,11 +130,15 @@
   }
   // La persona que atiende: el primer integrante marcado "Mostrar en el sitio" en Panel > Equipo,
   // o, si no hay nadie, el nombre de js/config.js (CONTACT_NAME).
+  // Los títulos (Lic., Ing., Arq., Dr.…) no cuentan para las iniciales; en el saludo sí se usan: "Hola Lic. Sabino".
+  const TITLE = /^(lic|licda|ing|arq|dr|dra|mtro|mtra|c\.?p|sr|sra|srita|prof|profa)\.?$/i;
   function whoOf(team) {
     const m = (team || [])[0]; const C = window.CRX_CONFIG;
     const name = (m && m.full_name) || C.CONTACT_NAME || 'INMOBILIARIA CRUMEX';
-    return { name, first: name.split(/\s+/)[0], role: (m && m.job_title) || C.CONTACT_ROLE || 'Asesor inmobiliario', photo: m && m.photo_path ? CRX.api.photoUrl(m.photo_path) : '',
-      ini: name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w.charAt(0)).join('').toUpperCase() };
+    const words = name.split(/\s+/).filter(Boolean); const title = words.length > 1 && TITLE.test(words[0]) ? words[0] : '';
+    const rest = title ? words.slice(1) : words;
+    return { name, first: title ? `${title} ${rest[0] || ''}`.trim() : rest[0] || name, role: (m && m.job_title) || C.CONTACT_ROLE || 'Asesor inmobiliario', photo: m && m.photo_path ? CRX.api.photoUrl(m.photo_path) : '',
+      ini: rest.slice(0, 2).map((w) => w.charAt(0)).join('').toUpperCase() };
   }
   // calificación de Google (si se capturó en Ajustes)
   function reviewsHtml(s, compact) {
@@ -341,7 +345,7 @@
       $$('[data-wa-link]').forEach((a) => { a.href = CRX.waLink(a.dataset.waText || 'Hola, me gustaría información.'); a.target = '_blank'; a.rel = 'noopener'; });
       // barra superior: número de WhatsApp, horario y avisos (uno a la vez)
       $$('[data-wa-num]').forEach((el) => { el.textContent = fmtPh(s.whatsapp); });
-      $$('[data-phone]').forEach((a) => { const ph = s.phone || s.whatsapp; a.href = 'tel:+52' + d10(ph); const t = a.querySelector('span'); if (t) t.textContent = fmtPh(ph); });
+      $$('[data-phone]').forEach((a) => { const ph = s.phone || s.whatsapp; a.href = CRX.phone.tel(ph); const t = a.querySelector('span'); if (t) t.textContent = fmtPh(ph); });
       if (s.hours && $('#tb-hours')) { $('#tb-hours span').textContent = s.hours; $('#tb-hours').hidden = false; }
       if (s.hours && $('#ftr-hours')) { $('#ftr-hours').textContent = 'Horario: ' + s.hours; $('#ftr-hours').hidden = false; }
       if (s.address && $('#ftr-addr')) { $('#ftr-addr').textContent = s.address; $('#ftr-addr').hidden = false; }
@@ -382,11 +386,11 @@
   }
 
   /* ---------- contacto (lista con teléfono, WhatsApp, correo…) ---------- */
-  const d10 = (x) => String(x || '').replace(/\D/g, '').slice(-10);
-  const fmtPh = (x) => { const d = d10(x); return d.length === 10 ? `${d.slice(0, 3)} ${d.slice(3, 6)} ${d.slice(6)}` : String(x || ''); };
+  // teléfonos siempre con lada: +52 899 217 9269 · +1 956 123 4567 (js/phone.js)
+  const fmtPh = (x) => (CRX.phone ? CRX.phone.format(x) : String(x || ''));
   function contactItems(s) {
     const phone = s.phone || ''; const items = [];
-    if (phone) items.push(['phone', 'Teléfono', `<a href="tel:+52${esc(d10(phone))}">${esc(fmtPh(phone))}</a>`]);
+    if (phone) items.push(['phone', 'Teléfono', `<a href="${esc(CRX.phone.tel(phone))}">${esc(fmtPh(phone))}</a>`]);
     items.push(['wa', 'WhatsApp', `<a target="_blank" rel="noopener" href="${esc(CRX.waLink())}">${s.whatsapp ? esc(fmtPh(s.whatsapp)) : 'Escribir por WhatsApp'}</a>`]);
     if (s.email) items.push(['mail', 'Correo', `<a href="mailto:${esc(s.email)}">${esc(s.email)}</a>`]);
     if (s.address) items.push(['pin', 'Dirección', esc(s.address)]);

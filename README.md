@@ -48,7 +48,7 @@ crumex/
 ├── tienda.html  catalogo.html  inmueble.html  zona.html  industrial.html  ficha.html  guias.html
 ├── vender.html  terminos.html  404.html  paginaadminimobi19.html  reporte.html  index.html  propiedad.html
 ├── css/   base.css · site.css · inmueble.css · admin.css · ficha.css · reporte.css
-├── fonts/ Bodoni Moda y Archivo (alojadas en el sitio; licencia OFL)
+├── fonts/ Roboto Slab y Archivo (alojadas en el sitio; licencias en fonts/)
 ├── js/
 │   ├── config.js        ← USE_SERVER: false (demostración) o true (MongoDB). Sin claves.
 │   ├── util.js          utilidades
@@ -250,10 +250,18 @@ Después de agregar o cambiar una variable, haz *Redeploy* en Vercel.
 
 - **Idea:** la página se ve como una hoja de planos. Las zonas azul marino llevan una retícula fina de dibujo técnico y la portada abre con una cota (línea de medida) con las coordenadas de Reynosa. Las fichas y formularios son blancos, como papel.
 - **Colores:** azul marino `#0E1E33` como color principal, azul rey `#1D5BA6` para botones y enlaces, azul claro `#9EC3EC` para líneas y notas sobre el marino, y papel `#F4F6F9` para las secciones claras. El verde de WhatsApp se queda porque la gente lo reconoce. Se cambian en `css/base.css` (`--navy`, `--acc`, `--acc2`…).
-- **Tipografías:** Bodoni Moda en títulos y logotipo; Archivo en texto, precios, datos y botones. Las dos son de Google Fonts y están alojadas en `fonts/`.
+- **Tipografías:** Roboto Slab (serif de bloque, gruesa y fácil de leer) en títulos y logotipo; Archivo en texto, precios, datos y botones. Las dos son de Google Fonts y están alojadas en `fonts/`.
 - **Movimiento:** al abrir la portada aparece la retícula, se dibuja la cota y el texto entra escalonado; al bajar, los bloques aparecen una sola vez. Si el teléfono o la computadora tienen activado "reducir movimiento", todo se ve quieto. La entrada está en `css/site.css` (sección "movimiento") y los revelados en `js/motion.js`.
 - **Portada ordenada para que escriban:** portada con WhatsApp a la vista → lo que pasa cuando nos escribes (respuesta el mismo día, visitas sin costo, reporte en línea para dueños) → propiedades → zonas → dueños → cómo trabajamos → créditos → quiénes somos y testimonios → guías → preguntas → llamada final.
 - **Sin datos inventados:** las secciones de reseñas, testimonios y equipo solo aparecen cuando capturas datos reales en el panel; mientras tanto no se muestran.
+
+## Teléfonos con lada por país
+
+- Todos los números se muestran con su lada: **+52 899 217 9269** (México) o **+1 956 123 4567** (Estados Unidos y Canadá), en la barra superior, el pie, el contacto, las fichas, el letrero, el reporte del dueño, los correos y el panel.
+- Cada campo de teléfono, del sitio y del panel, trae al lado la lista de **todos los países** con su lada (México, Estados Unidos y Canadá hasta arriba). En la página en inglés empieza en Estados Unidos. Si alguien pega su número con lada (por ejemplo +34…), el país se elige solo.
+- El número se guarda completo, con lada ("+1 956 123 4567"), y los botones de WhatsApp del panel abren el chat con la lada correcta.
+- Los números que ya tenías guardados sin lada (10 dígitos) se toman como de México (+52).
+- Todo vive en `js/phone.js` (la lista de países sale de libphonenumber-js, con nombres en español e inglés).
 
 ## Accesibilidad y velocidad
 
@@ -311,9 +319,9 @@ Basado en estudios del sector (lo que más usan los compradores: fotos, planos, 
 - **Sección en inglés para naves industriales** (`industrial.html`): medidas en ft² o m², altura libre en pies, andenes, energía, precio por ft², filtros por tamaño, altura y andenes, formulario en inglés y ficha PDF en inglés.
 - **Vender mi propiedad**, **comparador**, **favoritas**, **vistas recientemente** y animaciones suaves.
 - **Estadísticas anónimas:** vistas, clics a WhatsApp, favoritas, compartidas y fichas descargadas por propiedad. No guarda nombre, teléfono ni IP; respeta la señal de privacidad del navegador (GPC).
-- Tipografías alojadas en el propio sitio: carga más rápido y no manda datos a Google. Títulos en **Bodoni Moda**; texto, precios y datos en **Archivo**.
+- Tipografías alojadas en el propio sitio: carga más rápido y no manda datos a Google. Títulos en **Roboto Slab**; texto, precios y datos en **Archivo**.
 - **Cuando una propiedad todavía no tiene fotos** se ve como el letrero que se cuelga en la propiedad ("Se vende" o "Se renta", el tipo, los m² y tu teléfono) con la nota "Fotos próximamente". En cuanto subes fotos desde el panel, se usan las fotos. Lo que más ayuda a que el sitio se vea real son **fotos de verdad** de cada propiedad.
-- **Quién te atiende:** en la portada y en cada propiedad sale la persona que atiende, con su foto, su puesto y el WhatsApp. Se toma del primer integrante marcado "Mostrar en el sitio" en **Panel > Equipo**, donde también se sube su foto (botón "Subir foto"). Mientras no marques a nadie, sale el nombre de `CONTACT_NAME` en `js/config.js` ("Moisés Cruz") con sus iniciales.
+- **Quién te atiende:** en la portada y en cada propiedad sale la persona que atiende, con su foto, su puesto y el WhatsApp. Se toma del primer integrante marcado "Mostrar en el sitio" en **Panel > Equipo**, donde también se sube su foto (botón "Subir foto"). Mientras no marques a nadie, sale el nombre de `CONTACT_NAME` en `js/config.js` ("Lic. Sabino Cruz") con sus iniciales (SC; el título "Lic." no cuenta para las iniciales, pero sí se usa en el saludo de WhatsApp: "Hola Lic. Sabino").
 - Sin animaciones al bajar por la página: las secciones se ven desde el principio.
 - **Guías con página propia** (`guias.html`): índice, cada guía con su dirección, tiempo de lectura, botón para compartir, preguntas por WhatsApp, otras guías y propiedades relacionadas con el tema (por ejemplo, naves en una guía de naves). Google las encuentra en el `sitemap.xml` y WhatsApp muestra su vista previa.
 - **Fotos del tamaño justo:** con Cloudinary, cada tarjeta y cada galería pide la foto al ancho que necesita y en el formato más ligero que acepte el navegador. Sin Cloudinary, al subir una foto el panel guarda también una miniatura de 640 px para tarjetas y celulares. En el celular el catálogo descarga mucho menos.
@@ -389,4 +397,3 @@ Las fotos que están en Cloudinary se quedan allá. Las fotos y documentos guard
 - Para que las alertas y recordatorios lleguen a cualquier correo, verifica tu dominio en Resend (sin eso, Resend solo manda a tu propio correo).
 - Tu logotipo: hoy el sitio usa un monograma "C". Si tienes logo, se cambia en el encabezado, en `img/favicon.svg`, `img/icon-180.png` e `img/og.png`.
 - **Mapas:** usan los mapas gratuitos de OpenStreetMap, con su crédito visible. Si un día el sitio tiene mucho tráfico, conviene cambiar a un proveedor con cuenta (MapTiler o Stadia): es una línea en `js/map.js` y otra en `vercel.json`.
-"# crumex" 

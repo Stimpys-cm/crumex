@@ -15,7 +15,8 @@
     const h = Math.round(m / 60); if (h < 24) return `hace ${h} h`;
     const d = Math.round(h / 24); return d === 1 ? 'ayer' : `hace ${d} días`;
   }
-  const waUrl = (phone, text) => 'https://wa.me/' + String(phone || '').replace(/\D/g, '').replace(/^(\d{10})$/, '52$1') + (text ? '?text=' + encodeURIComponent(text) : '');
+  const waUrl = (phone, text) => 'https://wa.me/' + CRX.phone.digits(phone) + (text ? '?text=' + encodeURIComponent(text) : '');
+  const fph = (x) => CRX.phone.format(x); // teléfonos con lada: +52 899 123 4567
   const pref = { get: (k, d) => { try { return localStorage.getItem('crx-adm-' + k) || d; } catch (e) { return d; } }, set: (k, v) => { try { localStorage.setItem('crx-adm-' + k, v); } catch (e) { /* sin almacenamiento */ } } };
 
   /* ===================== definiciones ===================== */
@@ -24,7 +25,7 @@
     properties: { label: (r) => `${r.ref_code} · ${r.title}` },
     contacts: { label: (r) => r.full_name },
     profiles: { label: (r) => r.full_name || r.id },
-    leads: { label: (r) => `${r.full_name} (${r.phone})` },
+    leads: { label: (r) => `${r.full_name} (${fph(r.phone)})` },
     zones: { label: (r) => r.name }
   };
   const VISIT_STATUS = { pendiente: 'Pendiente', confirmada: 'Confirmada', realizada: 'Realizada', cancelada: 'Cancelada', no_asistio: 'No asistió' };
@@ -32,7 +33,7 @@
   const RES = {
     leads: {
       title: 'Prospectos', order: 'created_at', singular: 'prospecto', pk: 'id',
-      cols: [['Fecha', (r) => CRX.fmtDate(r.created_at)], ['Tipo', (r) => CRX.LEAD_KINDS[r.kind] || r.kind], ['Nombre', (r) => r.full_name], ['Teléfono', (r) => r.phone], ['Llegó desde', (r) => r.channel || (r.source === 'panel' ? 'Panel' : '—')],
+      cols: [['Fecha', (r) => CRX.fmtDate(r.created_at)], ['Tipo', (r) => CRX.LEAD_KINDS[r.kind] || r.kind], ['Nombre', (r) => r.full_name], ['Teléfono', (r) => fph(r.phone)], ['Llegó desde', (r) => r.channel || (r.source === 'panel' ? 'Panel' : '—')],
         ['Estado', (r) => `<span class="badge ${r.status === 'nuevo' ? 'warn' : r.status === 'ganado' ? 'ok' : ''}">${esc(CRX.LEAD_STATUS[r.status] || r.status)}</span>`, true]],
       filters: [['status', 'Estado', CRX.LEAD_STATUS], ['kind', 'Tipo', CRX.LEAD_KINDS]],
       fields: [
@@ -51,7 +52,7 @@
     },
     contacts: {
       title: 'Contactos', order: 'created_at', singular: 'contacto',
-      cols: [['Nombre', (r) => r.full_name], ['Teléfono', (r) => r.phone || ''], ['Correo', (r) => r.email || ''], ['Tipo', (r) => (r.kinds || []).join(', ')]],
+      cols: [['Nombre', (r) => r.full_name], ['Teléfono', (r) => fph(r.phone)], ['Correo', (r) => r.email || ''], ['Tipo', (r) => (r.kinds || []).join(', ')]],
       fields: [{ k: 'full_name', label: 'Nombre', req: 1 }, { k: 'phone', label: 'Teléfono', type: 'tel' }, { k: 'email', label: 'Correo', type: 'email' },
         { k: 'kinds', label: 'Es...', type: 'multi', opts: OPT({ propietario: 'Propietario', comprador: 'Comprador', inquilino: 'Inquilino', otro: 'Otro' }) },
         { k: 'notes', label: 'Notas', type: 'textarea', full: 1 }],
@@ -126,7 +127,7 @@
   };
 
   const SETTINGS = [
-    ['Contacto', [['whatsapp', 'WhatsApp (con lada, ej. 528992179269)'], ['phone', 'Teléfono'], ['email', 'Correo'], ['address', 'Dirección de la oficina'], ['hours', 'Horario']]],
+    ['Contacto', [['whatsapp', 'WhatsApp', 'tel'], ['phone', 'Teléfono', 'tel'], ['email', 'Correo'], ['address', 'Dirección de la oficina'], ['hours', 'Horario']]],
     ['Empresa y registro', [['license', 'Número de registro estatal de agente inmobiliario (Tamaulipas)'], ['razon_social', 'Razón social o nombre del titular'], ['rfc', 'RFC'],
       ['profeco_contrato', 'Registro del contrato de adhesión ante PROFECO (si vendes casas; NOM-247)'], ['about', 'Texto de "Nosotros"', 'textarea']]],
     ['Reseñas de Google', [['google_maps_url', 'Enlace a tu perfil en Google Maps'], ['google_review_url', 'Enlace para dejar reseña (en tu perfil de Google: "Pedir reseñas")'],
@@ -604,7 +605,7 @@
           const late = st === 'nuevo' && Date.now() - new Date(r.created_at) > DAY;
           return `<article class="lcard${late ? ' late' : ''}" draggable="true" data-id="${esc(r.id)}">
             <div class="lc-top"><span class="badge">${esc(CRX.LEAD_KINDS[r.kind] || r.kind)}</span><small title="${esc(CRX.fmtDate(r.created_at))}">${esc(ago(r.created_at))}</small></div>
-            <b>${esc(r.full_name)}</b><span class="muted">${esc(r.phone)}</span>
+            <b>${esc(r.full_name)}</b><span class="muted">${esc(fph(r.phone))}</span>
             ${prop ? `<small class="lc-prop">${esc(prop)}</small>` : ''}
             ${r.assigned_to ? `<small class="lc-who" title="Asignado a">👤 ${esc(refLabel(refs, 'profiles', r.assigned_to))}</small>` : ''}
             ${r.channel && r.channel !== 'Directo' ? `<small class="lc-who" title="Llegó desde">↗ ${esc(r.channel)}</small>` : ''}
@@ -712,7 +713,7 @@
   const calText = (v, refs) => {
     const p = (refs.properties || []).find((x) => x.id === v.property_id) || {}; const l = v.lead_id ? (refs.leads || []).find((x) => x.id === v.lead_id) : null;
     return { title: `Visita · ${p.ref_code || ''} ${p.title || ''}`.trim(), where: p.address_private || p.public_location || p.zone || 'Reynosa, Tamaulipas',
-      details: [l ? `Con: ${l.full_name} (${l.phone})` : '', v.notes || '', 'INMOBILIARIA CRUMEX'].filter(Boolean).join('\n') };
+      details: [l ? `Con: ${l.full_name} (${fph(l.phone)})` : '', v.notes || '', 'INMOBILIARIA CRUMEX'].filter(Boolean).join('\n') };
   };
   const icsDate = (d) => new Date(d).toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
   function gcalUrl(v, refs) {
@@ -905,7 +906,7 @@
     if (key === 'leads' && !isNew) {
       const linked = row.contact_id ? refLabel(refs, 'contacts', row.contact_id) : '';
       extra = `<div class="quick"><a class="btn btn-wa btn-sm" target="_blank" rel="noopener" href="${esc(waUrl(row.phone, `Hola ${String(row.full_name).split(' ')[0]}, te escribo de INMOBILIARIA CRUMEX.`))}">WhatsApp</a>
-        <span class="tel">Tel. <b>${esc(row.phone)}</b></span>
+        <span class="tel">Tel. <b>${esc(fph(row.phone))}</b></span>
         ${linked ? `<span class="badge ok">Contacto: ${esc(linked)}</span>` : '<button type="button" class="btn btn-line btn-sm" id="to-contact">Convertir en contacto</button>'}
         <button type="button" class="btn btn-line btn-sm" id="to-visit">Agendar visita</button>
         <button type="button" class="btn btn-line btn-sm" data-review="${esc(row.id)}">Pedir reseña</button>
@@ -1002,7 +1003,7 @@
           const late = st === 'nuevo' && Date.now() - new Date(r.created_at) > DAY;
           return `<article class="lcard ocard${late ? ' late' : ''}" data-id="${esc(r.id)}">
             <div class="lc-top"><span class="badge ${/vend/i.test(val(r, 'operacion')) && !/rent/i.test(val(r, 'operacion')) ? 'navy' : 'gold'}">${esc(val(r, 'operacion') || CRX.LEAD_KINDS[r.kind])}</span><small title="${esc(CRX.fmtDate(r.created_at))}">${esc(ago(r.created_at))}</small></div>
-            <b>${esc(r.full_name)}</b><span class="muted">${esc(r.phone)}</span>
+            <b>${esc(r.full_name)}</b><span class="muted">${esc(fph(r.phone))}</span>
             ${facts ? `<small class="lc-prop">${esc(facts)}</small>` : ''}
             ${val(r, 'precio_esperado') ? `<small>Espera: <b>$${esc(val(r, 'precio_esperado'))}</b></small>` : ''}
             ${val(r, 'estimado') ? `<small class="muted">Referencia: ${esc(val(r, 'estimado'))}</small>` : ''}
@@ -1097,7 +1098,7 @@
   async function viewSettings() {
     const s = await api.getSettings();
     if (!ROLE_ADMIN()) { $('#view').innerHTML = '<div class="panel"><p>Solo un administrador puede cambiar los ajustes del sitio.</p></div>'; return; }
-    $('#view').innerHTML = `<form id="sf" class="panel" novalidate>${SETTINGS.map(([t, fs]) => `<div class="fsec">${esc(t)}</div><div class="fgrid">${fs.map(([k, l, ty, opts]) => ty === 'select' ? `<div class="field full"><label for="s-${k}">${esc(l)}</label><select id="s-${k}" name="${k}">${opts.map(([v, t]) => `<option value="${v}"${(s[k] || opts[0][0]) === v ? ' selected' : ''}>${esc(t)}</option>`).join('')}</select>${k === 'lead_assign' ? '<span class="hint">El asesor asignado también recibe el aviso por correo si está configurado.</span>' : k === 'auto_reply' ? '<span class="hint">Mientras no verifiques tu dominio en Resend, Resend solo deja mandar correos a tu propia dirección.</span>' : ''}</div>` : ty === 'textarea' ? `<div class="field full"><label for="s-${k}">${esc(l)}</label><textarea id="s-${k}" name="${k}" rows="6">${esc(s[k] || '')}</textarea></div>` : `<div class="field"><label for="s-${k}">${esc(l)}</label><input id="s-${k}" name="${k}" value="${esc(s[k] || '')}"></div>`).join('')}</div>`).join('')}
+    $('#view').innerHTML = `<form id="sf" class="panel" novalidate>${SETTINGS.map(([t, fs]) => `<div class="fsec">${esc(t)}</div><div class="fgrid">${fs.map(([k, l, ty, opts]) => ty === 'select' ? `<div class="field full"><label for="s-${k}">${esc(l)}</label><select id="s-${k}" name="${k}">${opts.map(([v, t]) => `<option value="${v}"${(s[k] || opts[0][0]) === v ? ' selected' : ''}>${esc(t)}</option>`).join('')}</select>${k === 'lead_assign' ? '<span class="hint">El asesor asignado también recibe el aviso por correo si está configurado.</span>' : k === 'auto_reply' ? '<span class="hint">Mientras no verifiques tu dominio en Resend, Resend solo deja mandar correos a tu propia dirección.</span>' : ''}</div>` : ty === 'textarea' ? `<div class="field full"><label for="s-${k}">${esc(l)}</label><textarea id="s-${k}" name="${k}" rows="6">${esc(s[k] || '')}</textarea></div>` : `<div class="field"><label for="s-${k}">${esc(l)}</label><input id="s-${k}" name="${k}"${ty === 'tel' ? ' type="tel"' : ''} value="${esc(s[k] || '')}"></div>`).join('')}</div>`).join('')}
       <p class="note muted">Los textos legales base del sitio son una plantilla general. Pide a un abogado que revise tu aviso de privacidad y tus términos antes de publicar.</p>
       <div class="sticky-save"><button class="btn btn-gold" type="submit">Guardar ajustes</button><span class="muted" id="sf-state"></span></div></form>`;
     $('#sf').addEventListener('input', () => { $('#sf-state').textContent = 'Cambios sin guardar'; });
@@ -1144,10 +1145,10 @@
   }
   function drawBrand(ctx, x, y, light) {
     ctx.save(); roundRect(ctx, x, y, 76, 76, 18); ctx.fillStyle = '#0E1E33'; ctx.fill(); ctx.strokeStyle = 'rgba(158,195,236,.7)'; ctx.lineWidth = 2; ctx.stroke();
-    ctx.fillStyle = '#9EC3EC'; ctx.font = '700 46px "Bodoni Moda", Georgia, serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('C', x + 38, y + 41);
+    ctx.fillStyle = '#9EC3EC'; ctx.font = '700 46px "Roboto Slab", Georgia, serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('C', x + 38, y + 41);
     ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
     spaced(ctx, 6); ctx.font = '700 17px Archivo, system-ui, sans-serif'; ctx.fillStyle = '#9EC3EC'; ctx.fillText('INMOBILIARIA', x + 96, y + 30);
-    spaced(ctx, 3); ctx.font = '700 36px "Bodoni Moda", Georgia, serif'; ctx.fillStyle = light ? '#0E1E33' : '#FFFFFF'; ctx.fillText('CRUMEX', x + 96, y + 68);
+    spaced(ctx, 3); ctx.font = '700 36px "Roboto Slab", Georgia, serif'; ctx.fillStyle = light ? '#0E1E33' : '#FFFFFF'; ctx.fillText('CRUMEX', x + 96, y + 68);
     spaced(ctx, 0); ctx.restore();
   }
   function pill(ctx, text, x, y, bg, fg, font, padX, h) {
@@ -1178,7 +1179,7 @@
     ctx.fillStyle = light ? '#0E1E33' : '#fff'; ctx.textBaseline = 'middle'; ctx.fillText(o.p.ref_code, W - pad - rw + 20, pad + 40); spaced(ctx, 0); ctx.restore();
 
     // bloque de texto
-    ctx.font = `700 ${titleSize}px "Bodoni Moda", Georgia, serif`;
+    ctx.font = `700 ${titleSize}px "Roboto Slab", Georgia, serif`;
     const tLines = wrap(ctx, o.title, W - pad * 2, o.fmt === 'square' ? 2 : 3);
     const specs = o.specs ? o.specList.slice(0, 4) : [];
     const blockH = 60 + 28 + tLines.length * (titleSize * 1.12) + 20 + 40 + (o.price ? priceSize + 26 : 0) + (specs.length ? 86 : 0) + 110;
@@ -1195,11 +1196,11 @@
     }
     const ink = light ? '#0E1E33' : '#FFFFFF'; const mut = light ? '#536074' : '#C9D3E0';
     if (o.badge) { pill(ctx, o.badge.toUpperCase(), pad, y, '#1D5BA6', '#FFFFFF', '800 24px Archivo, sans-serif', 26, 54); y += 54 + 30; }
-    ctx.fillStyle = ink; ctx.font = `700 ${titleSize}px "Bodoni Moda", Georgia, serif`; ctx.textBaseline = 'alphabetic';
+    ctx.fillStyle = ink; ctx.font = `700 ${titleSize}px "Roboto Slab", Georgia, serif`; ctx.textBaseline = 'alphabetic';
     tLines.forEach((ln) => { y += titleSize * 1.02; ctx.fillText(ln, pad, y); y += titleSize * 0.1; });
     y += 22; ctx.fillStyle = mut; ctx.font = '500 32px Archivo, sans-serif';
     ctx.fillText(`${CRX.TYPES[o.p.type] || ''} · ${o.zone}, Reynosa`, pad, y + 30); y += 40;
-    if (o.price) { y += 24 + priceSize * 0.84; ctx.fillStyle = light ? '#0E1E33' : '#9EC3EC'; ctx.font = `700 ${priceSize}px "Bodoni Moda", Georgia, serif`; ctx.fillText(o.priceText, pad, y); }
+    if (o.price) { y += 24 + priceSize * 0.84; ctx.fillStyle = light ? '#0E1E33' : '#9EC3EC'; ctx.font = `700 ${priceSize}px "Roboto Slab", Georgia, serif`; ctx.fillText(o.priceText, pad, y); }
     if (specs.length) {
       y += 34; let x = pad;
       specs.forEach((t) => {
@@ -1226,7 +1227,7 @@
     const zone = p.zone || p.public_location || 'Reynosa';
     const tagType = { casa: p.operation === 'renta' ? '#CasaEnRenta' : '#CasaEnVenta', departamento: p.operation === 'renta' ? '#DepartamentoEnRenta' : '#DepartamentoEnVenta', terreno: '#TerrenoEnVenta', nave: '#NaveIndustrial' }[p.type] || '';
     const d = String(p.description || '').replace(/\s+/g, ' ').trim();
-    const phone = s.phone || window.CRX_CONFIG.PHONE || '';
+    const phone = fph(s.phone || window.CRX_CONFIG.PHONE || '');
     return [`${p.operation === 'renta' ? 'EN RENTA' : 'EN VENTA'} · ${p.title}`, '', `📍 ${zone}, Reynosa`, `💰 ${price}`, sp.length ? '✅ ' + sp.join(' · ') : '', d ? '\n' + (d.length > 220 ? d.slice(0, 220).replace(/\s\S*$/, '') + '…' : d) : '',
       '', `Clave ${p.ref_code}. Fotos y detalles:`, url, phone ? `📲 WhatsApp ${phone}` : '', '', ['#Reynosa', '#BienesRaicesReynosa', tagType, '#InmobiliariaCrumex'].filter(Boolean).join(' ')]
       .filter((x, i, arr) => !(x === '' && arr[i - 1] === '')).join('\n').replace(/\n{3,}/g, '\n\n').trim();
@@ -1237,7 +1238,7 @@
     if (!list.length) { $('#view').innerHTML = '<div class="panel empty">Primero agrega una propiedad. Aquí podrás crear la imagen para tus redes.</div>'; return; }
     const pre = new URLSearchParams(location.hash.split('?')[1] || '').get('p');
     const st = { id: (list.find((p) => p.id === pre) || list[0]).id, fmt: 'post', style: 'marino', photo: 0, price: true, specs: true };
-    const phone = s.phone || window.CRX_CONFIG.PHONE || '';
+    const phone = fph(s.phone || window.CRX_CONFIG.PHONE || '');
     $('#view').innerHTML = `<div class="studio">
       <form class="panel studio-ctl" id="st-form" novalidate>
         <div class="field"><label for="st-p">Propiedad</label><select id="st-p">${list.map((p) => `<option value="${esc(p.id)}">${esc(p.ref_code)} · ${esc(p.title)}${p.status === 'borrador' ? ' (borrador)' : ''}</option>`).join('')}</select></div>
@@ -1284,7 +1285,7 @@
       cv.width = off.width; cv.height = off.height; cv.getContext('2d').drawImage(off, 0, 0);
       cv.dataset.fmt = st.fmt; $('#st-size').textContent = `${off.width} × ${off.height} px`;
     };
-    try { await Promise.all([document.fonts.load('700 70px "Bodoni Moda"'), document.fonts.load('600 30px Archivo'), document.fonts.load('800 24px Archivo')]); } catch (e) { /* sin fuentes: usa las del sistema */ }
+    try { await Promise.all([document.fonts.load('700 70px "Roboto Slab"'), document.fonts.load('600 30px Archivo'), document.fonts.load('800 24px Archivo')]); } catch (e) { /* sin fuentes: usa las del sistema */ }
     $('#st-p').value = st.id; defaults(); render();
     $('#st-p').addEventListener('change', (e) => { st.id = e.target.value; defaults(); render(); });
     $('#st-form').addEventListener('click', (e) => {
@@ -1544,8 +1545,8 @@
     const contacts = (cache.contacts || []).filter((c) => hit(c, ['full_name', 'phone', 'email'])).slice(0, 5);
     const sec = (t, items, fn) => items.length ? `<div class="gs-sec"><small>${t}</small>${items.map(fn).join('')}</div>` : '';
     box.innerHTML = (sec('Propiedades', props, (p) => `<button type="button" data-gs="properties:${esc(p.id)}"><b>${esc(p.ref_code)}</b> ${esc(p.title)}</button>`)
-      + sec('Prospectos', leads, (l) => `<button type="button" data-gs="leads:${esc(l.id)}"><b>${esc(l.full_name)}</b> ${esc(l.phone)}</button>`)
-      + sec('Contactos', contacts, (c) => `<button type="button" data-gs="contacts:${esc(c.id)}"><b>${esc(c.full_name)}</b> ${esc(c.phone || c.email || '')}</button>`)) || '<p class="gs-none">Sin resultados</p>';
+      + sec('Prospectos', leads, (l) => `<button type="button" data-gs="leads:${esc(l.id)}"><b>${esc(l.full_name)}</b> ${esc(fph(l.phone))}</button>`)
+      + sec('Contactos', contacts, (c) => `<button type="button" data-gs="contacts:${esc(c.id)}"><b>${esc(c.full_name)}</b> ${esc(c.phone ? fph(c.phone) : c.email || '')}</button>`)) || '<p class="gs-none">Sin resultados</p>';
     box.hidden = false;
   }
   async function openFromSearch(spec) {

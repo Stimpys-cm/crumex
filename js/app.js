@@ -434,7 +434,7 @@
     if (PAGE === 'terminos') renderLegal(s);
     renderSeen(); syncCmp(); ui.syncFavs();
     if (PAGE === 'tienda') {
-      const tel = s.phone ? '+52' + String(s.phone).replace(/\D/g, '').slice(-10) : undefined;
+      const tel = s.phone ? '+' + CRX.phone.digits(s.phone) : undefined;
       const ld = { '@context': 'https://schema.org', '@graph': [
         { '@type': 'RealEstateAgent', name: 'INMOBILIARIA CRUMEX', url: location.origin + '/', areaServed: 'Reynosa, Tamaulipas, México', telephone: tel, email: s.email || undefined, address: { '@type': 'PostalAddress', addressLocality: 'Reynosa', addressRegion: 'Tamaulipas', addressCountry: 'MX', streetAddress: s.address || undefined } },
         { '@type': 'WebSite', name: 'INMOBILIARIA CRUMEX', url: location.origin + '/', inLanguage: 'es-MX', potentialAction: { '@type': 'SearchAction', target: location.origin + '/catalogo.html?q={q}', 'query-input': 'required name=q' } }] };

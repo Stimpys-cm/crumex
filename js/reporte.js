@@ -150,7 +150,7 @@
       </section>
 
       <footer class="s-foot r-foot">
-        <div>${p.advisor ? `<b>Tu asesor:</b> ${esc(p.advisor.full_name)}${p.advisor.phone ? ' · ' + esc(p.advisor.phone) : ''}${p.advisor.email ? ' · ' + esc(p.advisor.email) : ''}` : `<b>${esc(company)}</b>${phone ? ' · Tel. ' + esc(phone) : ''}`}</div>
+        <div>${p.advisor ? `<b>Tu asesor:</b> ${esc(p.advisor.full_name)}${p.advisor.phone ? ' · ' + esc(CRX.phone.format(p.advisor.phone)) : ''}${p.advisor.email ? ' · ' + esc(p.advisor.email) : ''}` : `<b>${esc(company)}</b>${phone ? ' · Tel. ' + esc(CRX.phone.format(phone)) : ''}`}</div>
         <div>Las cifras salen del sitio web de ${esc(company)}: una misma persona cuenta una sola vez cada 30 minutos y no se guarda ningún dato personal de quien la ve. Los contactos por llamada o en persona que no se registraron en el panel no aparecen aquí.</div>
       </footer>`;
 
@@ -167,7 +167,7 @@
     if (OWNER) { $('#f-print').disabled = false; document.title = `Tu propiedad ${p.ref_code || ''} · ${p.title} | INMOBILIARIA CRUMEX`; return; }
 
     // WhatsApp al propietario con el resumen
-    let digits = String((p.owner && p.owner.phone) || '').replace(/\D/g, ''); if (digits.length === 10) digits = '52' + digits;
+    let digits = CRX.phone.digits((p.owner && p.owner.phone) || '');
     const first = p.owner && p.owner.full_name ? ' ' + String(p.owner.full_name).trim().split(/\s+/)[0] : '';
     const txt = `Hola${first}, te comparto cómo va tu propiedad "${p.title}" (${p.ref_code}) del ${fdate(from, true)} al ${fdate(to, true)}: ${fmtN(n.views)} vistas, ${fmtN(n.wa)} clics a WhatsApp, ${fmtN(n.leads.length)} solicitudes y ${fmtN(n.visits.length)} visitas agendadas. ${R.owner_link ? ` Aquí puedes verlo cuando quieras, siempre actualizado: ${ownerUrl(R.owner_link)}` : ' Te mando el reporte completo en PDF por aquí.'}`;
     $('#r-wa').href = (digits.length >= 11 ? `https://wa.me/${digits}` : 'https://wa.me/') + '?text=' + encodeURIComponent(txt);

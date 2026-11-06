@@ -69,7 +69,7 @@
       const am = CRX.amenFor(p.type).filter(([k]) => (a.amenidades || []).includes(k)).map(([, l]) => l); if (am.length) extra.push(['Lo que tiene', am.join(', ')]);
     }
     const phone = s.phone || window.CRX_CONFIG.PHONE || '';
-    const contacts = [phone ? `<li><b>${EN ? 'Phone / WhatsApp' : 'Teléfono / WhatsApp'}</b>${esc(phone)}</li>` : '', s.email ? `<li><b>${EN ? 'Email' : 'Correo'}</b>${esc(s.email)}</li>` : '', s.address ? `<li><b>${EN ? 'Office' : 'Oficina'}</b>${esc(s.address)}</li>` : '', `<li><b>Web</b>${esc(location.host || '')}</li>`].join('');
+    const contacts = [phone ? `<li><b>${EN ? 'Phone / WhatsApp' : 'Teléfono / WhatsApp'}</b>${esc(CRX.phone.format(phone))}</li>` : '', s.email ? `<li><b>${EN ? 'Email' : 'Correo'}</b>${esc(s.email)}</li>` : '', s.address ? `<li><b>${EN ? 'Office' : 'Oficina'}</b>${esc(s.address)}</li>` : '', `<li><b>Web</b>${esc(location.host || '')}</li>`].join('');
     const dateTxt = new Date().toLocaleDateString(EN ? 'en-US' : 'es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
 
     $('#sheet').innerHTML = `
