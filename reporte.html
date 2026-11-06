@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0E1E33">
+<title>Reporte para el propietario | INMOBILIARIA CRUMEX</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/bodoni-moda-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/ficha.css">
+<link rel="stylesheet" href="css/reporte.css">
+</head>
+<body class="ficha-page">
+<div class="f-bar no-print">
+  <a class="f-back" href="paginaadminimobi19.html#/propiedades">← Volver al panel</a>
+  <div class="r-per" id="r-period" role="group" aria-label="Periodo del reporte"><button type="button" data-per="30" aria-pressed="true">30 días</button><button type="button" data-per="90" aria-pressed="false">90 días</button><button type="button" data-per="all" aria-pressed="false">Desde que se publicó</button></div>
+  <span class="f-hint">En el cuadro de impresión elige “Guardar como PDF”.</span>
+  <button class="btn btn-line btn-sm" id="r-link" type="button">Crear enlace para el propietario</button>
+  <a class="btn btn-wa btn-sm" id="r-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+  <button class="btn btn-gold btn-sm" id="f-print" type="button" disabled>Imprimir o guardar PDF</button>
+</div>
+<div class="r-linkbox no-print" id="r-linkbox" hidden></div>
+<main class="sheet" id="sheet"><p class="f-loading">Cargando reporte…</p></main>
+<script src="js/config.js"></script>
+<script src="js/util.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/listing.js"></script>
+<script src="js/reporte.js"></script>
+</body>
+</html>

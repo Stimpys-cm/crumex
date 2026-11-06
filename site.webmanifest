@@ -1,0 +1,17 @@
+{
+  "id": "/tienda.html",
+  "name": "INMOBILIARIA CRUMEX",
+  "short_name": "CRUMEX",
+  "description": "Casas, departamentos, terrenos y naves industriales en venta y renta en Reynosa, Tamaulipas.",
+  "lang": "es-MX",
+  "start_url": "/tienda.html?app=1",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#0E1E33",
+  "icons": [
+    { "src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/img/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

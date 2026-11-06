@@ -1,0 +1,15 @@
+{
+  "name": "inmobiliaria-crumex",
+  "version": "1.0.0",
+  "private": true,
+  "description": "INMOBILIARIA CRUMEX · sitio y panel (Reynosa, Tamaulipas)",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@vercel/edge": "^1.2.3",
+    "bcryptjs": "^3.0.3",
+    "mongodb": "^6.21.0"
+  }
+}

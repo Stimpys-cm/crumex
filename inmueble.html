@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Propiedad | INMOBILIARIA CRUMEX</title>
+<meta name="description" content="Propiedad en venta o renta en Reynosa, Tamaulipas. INMOBILIARIA CRUMEX.">
+<meta name="theme-color" content="#0E1E33">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="INMOBILIARIA CRUMEX">
+<meta property="og:title" content="Propiedad | INMOBILIARIA CRUMEX">
+<meta property="og:description" content="Propiedad en venta o renta en Reynosa, Tamaulipas. INMOBILIARIA CRUMEX.">
+<meta property="og:locale" content="es_MX">
+<meta property="og:image" content="img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="CRUMEX">
+<link rel="preload" href="fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/bodoni-moda-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/inmueble.css">
+</head>
+<body class="pp">
+<a class="skip" href="#main">Saltar al contenido</a>
+<div id="demo-banner" class="demo-banner" role="region" aria-label="Aviso de demostración" hidden>Modo demostración: los datos son de ejemplo y se guardan solo en este navegador. Para usar datos reales conecta MongoDB (ver README) y pon <code>USE_SERVER: true</code> en <code>js/config.js</code>.</div>
+<div class="topbar" role="region" aria-label="Contacto rápido"><div class="wrap topbar-in">
+  <span class="tb-i tb-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Reynosa, Tamaulipas</span>
+  <a class="tb-i tb-wa" href="#" data-wa-link><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.1-.3.3-.1.5.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg><span data-wa-num>899 217 9269</span></a>
+  <span class="tb-i tb-hours" id="tb-hours" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span></span></span>
+  <p class="tb-msg" id="ticker" data-msgs="Visitas sin costo, en el horario que te acomode|Te respondemos por WhatsApp|La dirección exacta se comparte al agendar la visita">Visitas sin costo, en el horario que te acomode</p>
+  <a class="tb-i tb-en" href="industrial.html" hreflang="en" lang="en">Industrial space</a>
+</div></div>
+<header class="hdr" id="top">
+  <div class="wrap hdr-in">
+    <a class="logo" href="tienda.html"><span class="mark" aria-hidden="true">C</span><span class="logo-t"><small>Inmobiliaria</small><span>CRU<b>MEX</b></span></span><span class="sr-only">, inicio</span></a>
+    <form class="hsearch" id="hsearch" role="search" action="catalogo.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></svg>
+      <label class="sr-only" for="hq">Buscar propiedades</label>
+      <input id="hq" name="q" type="search" placeholder="Busca por zona, tipo o clave (CRX-00001)" autocomplete="off">
+      <button type="submit">Buscar</button>
+    </form>
+    <div class="hdr-act">
+      <button class="icon-btn" id="search-open" type="button" aria-label="Buscar" aria-expanded="false" aria-controls="hsearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></svg></button>
+      <button class="icon-btn" id="fav-open" type="button" aria-label="Mis favoritas" aria-controls="drawer" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="dot" data-fav-count hidden>0</span></button>
+      <a class="btn btn-navy btn-sm hide-sm" href="catalogo.html">Ver catálogo</a>
+    </div>
+  </div>
+  <nav class="subnav" aria-label="Secciones"><div class="wrap subnav-in"><a href="tienda.html" data-nav="tienda">Inicio</a><a href="catalogo.html" data-nav="catalogo" aria-current="page">Catálogo</a><a href="catalogo.html?op=venta" data-nav="venta">En venta</a><a href="catalogo.html?op=renta" data-nav="renta">En renta</a><a href="catalogo.html?tipo=casa" data-nav="casa">Casas</a><a href="catalogo.html?tipo=departamento" data-nav="departamento">Departamentos</a><a href="catalogo.html?tipo=terreno" data-nav="terreno">Terrenos</a><a href="catalogo.html?tipo=nave" data-nav="nave">Naves industriales</a><a href="zona.html" data-nav="zonas">Zonas</a><span class="sep" aria-hidden="true"></span><a href="vender.html" data-nav="vender" class="gold">Propietarios</a><a href="tienda.html#creditos" data-nav="creditos">Créditos</a><a href="tienda.html#nosotros" data-nav="nosotros">Nosotros</a></div></nav>
+</header>
+<main id="main" class="wrap pp-main">
+  <div id="pp-loading" class="pp-grid" aria-hidden="true">
+    <div class="skel" style="aspect-ratio:4/3;border-radius:18px"></div>
+    <div style="display:grid;gap:14px;align-content:start"><div class="skel" style="height:14px;width:40%"></div><div class="skel" style="height:34px;width:90%"></div><div class="skel" style="height:30px;width:50%"></div><div class="skel" style="height:120px"></div><div class="skel" style="height:52px"></div></div>
+  </div>
+
+  <section id="pp-404" class="pp-404" hidden>
+    <h1 id="nf-title">No encontramos esta propiedad</h1>
+    <p id="nf-text">Puede que ya no esté publicada o que el enlace esté incompleto.</p>
+    <p class="cta-act" style="justify-content:center"><a class="btn btn-gold" href="catalogo.html">Ver el catálogo</a> <a class="btn btn-line" id="nf-wa" href="#" target="_blank" rel="noopener">Preguntar por WhatsApp</a> <button class="btn btn-line" id="nf-retry" type="button" hidden>Reintentar</button></p>
+  </section>
+
+  <article id="pp" hidden>
+    <nav class="crumbs" aria-label="Ruta de navegación" id="crumbs"></nav>
+    <div class="pp-grid">
+      <section class="gal" aria-label="Fotografías">
+        <div class="stage" id="stage">
+          <div class="stage-track" id="track"></div>
+          <div class="lens" id="lens" aria-hidden="true" hidden></div>
+          <button class="nav-btn prev" id="g-prev" aria-label="Foto anterior">‹</button>
+          <button class="nav-btn next" id="g-next" aria-label="Foto siguiente">›</button>
+          <span class="g-count" id="g-count"></span>
+          <button class="g-zoom" id="g-zoom">Ampliar</button>
+          <span class="g-tags" id="g-tags"></span>
+          <button class="g-video" id="g-video" type="button" hidden>▶ Video</button>
+        </div>
+        <div class="g-thumbs" id="thumbs"></div>
+      </section>
+      <div class="pp-info">
+        <div class="info-in">
+          <p class="meta" id="pp-meta"></p>
+          <h1 id="pp-title"></h1>
+          <p class="where" id="pp-where"></p>
+          <div class="pricebox"><div id="pp-price"></div><span class="ppm2" id="pp-ppm"></span></div>
+          <p class="pdrop" id="pp-drop" hidden></p>
+          <p class="creds" id="pp-cred" hidden></p>
+          <ul class="keys" id="pp-keys"></ul>
+          <div class="cta-col" id="pp-cta"></div>
+          <div class="who who-side" data-who="side"></div>
+          <div id="pp-fin"></div>
+          <div id="pp-costs"></div>
+        </div>
+      </div>
+    </div>
+    <div class="pp-body">
+      <div class="pp-col">
+        <section class="blk" aria-labelledby="h-det"><h2 id="h-det">Características</h2><dl class="det" id="pp-det"></dl></section>
+        <section class="blk" id="blk-rent" hidden aria-labelledby="h-rent"><h2 id="h-rent">Para rentarla</h2><div id="pp-rent"></div></section>
+        <section class="blk" id="blk-desc" aria-labelledby="h-desc"><h2 id="h-desc">Descripción</h2><div class="desc" id="pp-desc"></div></section>
+        <section class="blk" id="blk-plans" hidden aria-labelledby="h-plans"><h2 id="h-plans">Planos</h2><div class="plans" id="pp-plans"></div></section>
+        <section class="blk" id="blk-amen" hidden aria-labelledby="h-amen"><h2 id="h-amen">Lo que tiene</h2><ul class="amen" id="pp-amen"></ul></section>
+        <section class="blk" id="blk-video" aria-labelledby="h-video" hidden><h2 id="h-video">Video y recorrido</h2><div id="pp-video"></div></section>
+        <section class="blk" aria-labelledby="h-loc"><h2 id="h-loc">Ubicación</h2><div id="pp-loc"></div><div class="near" id="pp-near" hidden></div><div class="zmap" id="pp-map" hidden role="region" aria-label="Mapa aproximado de la zona"></div></section>
+        <section class="blk" aria-labelledby="h-proc"><h2 id="h-proc">Cómo es el proceso</h2><ol class="proc" id="pp-proc"></ol></section>
+        <div class="before" id="pp-before"></div>
+      </div>
+      <div class="pp-col"><section class="blk visit" id="agendar" aria-labelledby="h-visit"></section></div>
+    </div>
+  </article>
+
+  <section class="blk sim" id="sec-zone" hidden aria-labelledby="h-zone"><header class="sec-h row"><div><p class="eyebrow">Misma zona</p><h2 id="h-zone">Más en <em id="zone-name">esta zona</em></h2></div><div style="display:flex;gap:14px;align-items:center"><a class="more-link" href="catalogo.html" id="zone-more">Ver la zona</a><div class="rail-nav" data-rail="#rail-zone"><button type="button" data-dir="-1" aria-label="Anteriores">‹</button><button type="button" data-dir="1" aria-label="Siguientes">›</button></div></div></header><div class="rail" id="rail-zone"></div></section>
+  <section class="blk sim" id="sec-sim" hidden aria-labelledby="h-sim"><header class="sec-h row"><div><p class="eyebrow">Te pueden interesar</p><h2 id="h-sim">Propiedades <em>similares</em></h2></div><div style="display:flex;gap:14px;align-items:center"><a class="more-link" href="catalogo.html" id="sim-more">Ver todas</a><div class="rail-nav" data-rail="#rail-sim"><button type="button" data-dir="-1" aria-label="Anteriores">‹</button><button type="button" data-dir="1" aria-label="Siguientes">›</button></div></div></header><div class="rail" id="rail-sim"></div></section>
+  <section class="blk sim" id="sec-new" hidden aria-labelledby="h-new"><header class="sec-h row"><div><p class="eyebrow">Recién publicadas</p><h2 id="h-new">Lo <em>último</em> del catálogo</h2></div><div style="display:flex;gap:14px;align-items:center"><a class="more-link" href="catalogo.html">Ver catálogo</a><div class="rail-nav" data-rail="#rail-new"><button type="button" data-dir="-1" aria-label="Anteriores">‹</button><button type="button" data-dir="1" aria-label="Siguientes">›</button></div></div></header><div class="rail" id="rail-new"></div></section>
+</main>
+
+<div class="mbar" id="mbar" hidden><div><small id="mb-ref"></small><b id="mb-price"></b></div><a class="btn btn-wa" id="mb-wa" href="#" target="_blank" rel="noopener">WhatsApp</a></div>
+
+<dialog class="lb" id="lb" aria-label="Galería de fotos">
+  <button class="lb-x" id="lb-x" aria-label="Cerrar galería">×</button>
+  <button class="lb-nav prev" id="lb-prev" aria-label="Foto anterior">‹</button>
+  <figure><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button class="lb-nav next" id="lb-next" aria-label="Foto siguiente">›</button>
+</dialog>
+<footer class="ftr">
+  <div class="wrap ftr-top">
+    <div class="ftr-brand"><strong class="ftr-logo">INMOBILIARIA <span>CRUMEX</span></strong><p>Venta y renta de casas, departamentos, terrenos y naves industriales en Reynosa, Tamaulipas.</p><div class="ftr-rev" data-greviews hidden></div></div>
+    <div class="ftr-cta"><a class="btn btn-wa" href="#" data-wa-link><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.1-.3.3-.1.5.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg><span>Escribir por WhatsApp</span></a><a class="ftr-phone" href="tel:+528992179269" data-phone><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 7 7L16 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span>899 217 9269</span></a></div>
+  </div>
+  <div class="wrap ftr-in">
+    <div><h2 class="ftr-h">Propiedades</h2><a href="catalogo.html">Todo el catálogo</a><a href="catalogo.html?op=venta">En venta</a><a href="catalogo.html?op=renta">En renta</a><a href="catalogo.html?tipo=nave">Naves industriales</a><a href="catalogo.html?tipo=terreno">Terrenos</a><a href="zona.html">Zonas de Reynosa</a><a href="industrial.html" hreflang="en" lang="en">Industrial space (English)</a></div>
+    <div><h2 class="ftr-h">Propietarios</h2><a href="vender.html">Renta o vende tu propiedad</a><a href="vender.html#estimador">¿Cuánto puedo cobrar?</a><a href="vender.html#recomienda">Recomienda un propietario</a></div>
+    <div><h2 class="ftr-h">Te orientamos</h2><a href="tienda.html#creditos">Créditos</a><a href="tienda.html#pasos">Cómo trabajamos</a><a href="guias.html">Guías</a><a href="tienda.html#contacto">Escríbenos</a></div>
+    <div class="ftr-office"><h2 class="ftr-h">Oficina</h2><p>Reynosa, Tamaulipas, México</p><p id="ftr-addr" hidden></p><p id="ftr-hours" hidden></p><p class="small" id="ftr-license"></p><p class="small" id="ftr-company" hidden></p><div class="ftr-social" id="ftr-social"></div></div>
+  </div>
+  <div class="wrap ftr-note"><p><strong>Importante:</strong> precios en pesos mexicanos (MXN) salvo que se indique otra moneda. Precios, medidas y disponibilidad pueden cambiar sin previo aviso y se confirman por escrito antes de cualquier operación. Las imágenes son ilustrativas. <a href="terminos.html">Leer los términos completos</a>.</p></div>
+  <div class="wrap ftr-bottom"><small>© <span data-year>2026</span> INMOBILIARIA CRUMEX. Todos los derechos reservados.</small><nav aria-label="Legal"><a href="terminos.html#terminos">Términos de uso</a><a href="terminos.html#privacidad">Aviso de privacidad</a></nav></div>
+</footer>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-labelledby="dr-title" hidden>
+  <div class="drawer-h"><h3 id="dr-title">Mis favoritas <span class="badge gold" data-fav-count>0</span></h3><button class="x" id="dr-close" type="button" aria-label="Cerrar">×</button></div>
+  <div class="drawer-b" id="fav-list"></div>
+  <div class="drawer-f" id="fav-foot" hidden>
+    <a class="btn btn-wa" id="fav-send" href="#" target="_blank" rel="noopener">Preguntar por mi lista en WhatsApp</a>
+    <button class="btn btn-line btn-sm" id="fav-clear" type="button">Vaciar la lista</button>
+  </div>
+</aside>
+<script src="js/config.js"></script>
+<script src="js/util.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/listing.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/map.js"></script>
+<script src="js/inmueble.js"></script>
+</body>
+</html>

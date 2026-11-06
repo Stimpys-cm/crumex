@@ -1,0 +1,75 @@
+/* INMOBILIARIA CRUMEX · ficha técnica imprimible (tamaño carta) */
+.ficha-page{background:var(--bg2)}
+.f-bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:12px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px));background:#fff;border-bottom:1px solid var(--line)}
+.f-back{font-weight:600;text-decoration:none}
+.f-hint{color:var(--mut);font-size:.88rem;margin-right:auto}
+.f-loading{padding:60px;text-align:center;color:var(--mut)}
+.sheet{width:min(8.5in,100% - 24px);margin:24px auto 48px;background:#fff;box-shadow:var(--sh-md);border-radius:6px;padding:.55in .6in;color:var(--text);display:grid;gap:18px}
+.s-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:14px;border-bottom:2px solid var(--acc)}
+.s-brand{display:flex;align-items:center;gap:10px}
+.s-brand .mark{width:42px;height:42px;border-radius:10px;background:var(--navy);color:var(--acc2);display:grid;place-items:center;font:700 1.45rem var(--serif)}
+.s-brand small{display:block;font:700 .55rem var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--acctx)}
+.s-brand b{font:700 1.35rem/1 var(--serif);letter-spacing:.06em;color:var(--navy)}
+.s-meta{text-align:right;display:grid}
+.s-meta b{font:700 .78rem var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.s-meta span{font-size:.78rem;color:var(--mut)}
+.s-eyebrow{margin:0;font:700 .72rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--acctx)}
+.s-title h1{font-size:1.75rem;margin:4px 0 6px}
+.s-where{display:flex;gap:6px;align-items:center;margin:0;color:var(--mut);font-size:.92rem}
+.s-where svg{width:16px;height:16px;color:var(--acctx)}
+.s-price{margin:8px 0 0;font:800 1.6rem var(--sans);color:var(--navy)}
+.s-photos{display:grid;gap:8px;grid-template-columns:2fr 1fr;grid-template-rows:repeat(3,1fr);height:3.2in}
+.s-photos img{width:100%;height:100%;object-fit:cover;border-radius:6px;min-height:0}
+.s-photos img.main{grid-row:1/-1}
+.s-photos.n1{grid-template-columns:1fr}.s-photos.n1 img.main{grid-row:auto}
+.s-photos.n2{grid-template-rows:1fr}.s-photos.n2 img.main{grid-row:auto}
+.s-photos.n3{grid-template-rows:repeat(2,1fr)}
+.s-photos.n0{grid-template-columns:1fr;grid-template-rows:1fr;height:1.3in}
+.s-noph{display:grid;place-items:center;background:linear-gradient(135deg,#e6eaf0,#cfd7e3);border-radius:6px;color:var(--mut)}.s-noph svg{width:42px;height:42px}
+.s-noph.is-art{display:flex;align-items:center;justify-content:flex-start;gap:18px;overflow:hidden;background:#F2F5F8}.s-noph.is-art img{height:100%;width:auto;aspect-ratio:4/3;object-fit:cover;border-radius:6px 0 0 6px}.s-noph.is-art small{font-size:9.5pt;color:var(--mut);max-width:30ch}
+.s-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.s-facts div{border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:grid;gap:1px}
+.s-facts svg{width:18px;height:18px;color:var(--acctx)}
+.s-facts b{font:700 .95rem var(--sans);color:var(--navy)}
+.s-facts small{color:var(--mut);font-size:.7rem}
+.s-body{display:grid;grid-template-columns:1fr 2.1in;gap:22px;align-items:start}
+.s-body h2{font:700 .74rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--acctx);margin:0 0 6px}
+.s-body p{font-size:.84rem;line-height:1.55;margin:0 0 8px}
+.s-body dl{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.s-body dl div{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid var(--line);font-size:.8rem}
+.s-body dt{color:var(--mut)}.s-body dd{margin:0;font-weight:600;color:var(--navy);text-align:right}
+.s-side{border-left:1px solid var(--line);padding-left:18px}
+.s-qr{width:1.4in;height:1.4in;margin-bottom:6px}.s-qr svg{width:100%;height:100%;display:block}
+.s-scan{font-size:.72rem!important;color:var(--mut)}
+.s-side ul{list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:.8rem}
+.s-side li b{display:block;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.s-foot{border-top:1px solid var(--line);padding-top:10px;font-size:.7rem;color:var(--mut)}
+@media(max-width:700px){.sheet{padding:20px}.s-facts{grid-template-columns:repeat(2,1fr)}.s-body{grid-template-columns:1fr}.s-side{border:0;padding:0}.s-body dl{grid-template-columns:1fr}.s-photos{height:auto;grid-template-columns:1fr;grid-template-rows:auto}.s-photos img{aspect-ratio:4/3}.s-photos img.main{grid-row:auto}}
+@page{size:letter;margin:0.4in}
+@media print{
+  .no-print{display:none!important}
+  body,.ficha-page{background:#fff}
+  .sheet{width:auto;margin:0;padding:0;box-shadow:none;border-radius:0;gap:14px}
+  .s-photos{height:3in}
+  .s-facts,.s-body,.s-head{break-inside:avoid}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.s-photos.n0{grid-template-columns:1fr;grid-template-rows:1fr;height:2.3in}
+
+/* letrero de "sin fotos" también en la ficha imprimible (antes salía como texto suelto) */
+.s-noph{position:relative;border-radius:6px;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.noimg{position:absolute;inset:0;display:grid;place-items:center;background-color:#DDE1E6;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40'%3E%3Cpath d='M0 19.5h80M0 39.5h80M40 0v20M0 20v20M80 20v20' stroke='%23000' stroke-opacity='.06' fill='none'/%3E%3C/svg%3E")}
+.sign{position:relative;display:grid;justify-items:center;gap:3px;min-width:56%;max-width:84%;padding:13px 18px 11px;background:#FFFFFF;border-radius:3px;text-align:center;transform:rotate(var(--rot,0deg));box-shadow:0 1px 0 rgba(0,0,0,.12),0 12px 20px -12px rgba(0,0,0,.5)}
+.sign::before,.sign::after{content:"";position:absolute;top:6px;width:5px;height:5px;border-radius:50%;background:#8E959E}
+.sign::before{left:7px}.sign::after{right:7px}
+.sign b{font:800 1.7rem/1 var(--display);color:#C3261D;letter-spacing:.03em}
+.sign span{font:600 .86rem/1.25 var(--sans);color:#2A2A2A}
+.sign small{font:700 .92rem var(--display);color:#151515;letter-spacing:.02em}
+.sign.lg{padding:20px 30px 16px;gap:6px}
+.sign.lg b{font-size:clamp(2.2rem,5vw,3.4rem)}
+.sign.lg span{font-size:1.05rem}
+.sign.lg small{font-size:1.15rem}
+.sign b{white-space:nowrap}
+.sign small{white-space:nowrap}
+.sign b,.sign small{font-family:var(--sans);font-weight:800;font-stretch:112%}
+.s-noph.noimg{position:relative;inset:auto;height:100%;min-height:0}

@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Renta o vende tu casa o terreno en Reynosa | INMOBILIARIA CRUMEX</title>
+<meta name="description" content="¿Tienes una casa, departamento, terreno o nave en Reynosa? Te ayudamos a rentarla o venderla: referencia de precio al instante, filtro de interesados, contrato y reporte en línea de tu propiedad.">
+<meta name="theme-color" content="#0E1E33">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="INMOBILIARIA CRUMEX">
+<meta property="og:title" content="Renta o vende tu casa o terreno en Reynosa | INMOBILIARIA CRUMEX">
+<meta property="og:description" content="¿Tienes una casa, departamento, terreno o nave en Reynosa? Te ayudamos a rentarla o venderla: referencia de precio al instante, filtro de interesados, contrato y reporte en línea de tu propiedad.">
+<meta property="og:locale" content="es_MX">
+<meta property="og:image" content="img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="CRUMEX">
+<link rel="preload" href="fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/bodoni-moda-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body class="has-bnav">
+<a class="skip" href="#main">Saltar al contenido</a>
+<div id="demo-banner" class="demo-banner" role="region" aria-label="Aviso de demostración" hidden>Modo demostración: los datos son de ejemplo y se guardan solo en este navegador. Para usar datos reales conecta MongoDB (ver README) y pon <code>USE_SERVER: true</code> en <code>js/config.js</code>.</div>
+<div class="topbar" role="region" aria-label="Contacto rápido"><div class="wrap topbar-in">
+  <span class="tb-i tb-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Reynosa, Tamaulipas</span>
+  <a class="tb-i tb-wa" href="#" data-wa-link><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.1-.3.3-.1.5.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg><span data-wa-num>899 217 9269</span></a>
+  <span class="tb-i tb-hours" id="tb-hours" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span></span></span>
+  <p class="tb-msg" id="ticker" data-msgs="Visitas sin costo, en el horario que te acomode|Te respondemos por WhatsApp|La dirección exacta se comparte al agendar la visita">Visitas sin costo, en el horario que te acomode</p>
+  <a class="tb-i tb-en" href="industrial.html" hreflang="en" lang="en">Industrial space</a>
+</div></div>
+<header class="hdr" id="top">
+  <div class="wrap hdr-in">
+    <a class="logo" href="tienda.html"><span class="mark" aria-hidden="true">C</span><span class="logo-t"><small>Inmobiliaria</small><span>CRU<b>MEX</b></span></span><span class="sr-only">, inicio</span></a>
+    <form class="hsearch" id="hsearch" role="search" action="catalogo.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></svg>
+      <label class="sr-only" for="hq">Buscar propiedades</label>
+      <input id="hq" name="q" type="search" placeholder="Busca por zona, tipo o clave (CRX-00001)" autocomplete="off">
+      <button type="submit">Buscar</button>
+    </form>
+    <div class="hdr-act">
+      <button class="icon-btn" id="search-open" type="button" aria-label="Buscar" aria-expanded="false" aria-controls="hsearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/></svg></button>
+      <button class="icon-btn" id="fav-open" type="button" aria-label="Mis favoritas" aria-controls="drawer" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span class="dot" data-fav-count hidden>0</span></button>
+      <a class="btn btn-navy btn-sm hide-sm" href="catalogo.html">Ver catálogo</a>
+    </div>
+  </div>
+  <nav class="subnav" aria-label="Secciones"><div class="wrap subnav-in"><a href="tienda.html" data-nav="tienda">Inicio</a><a href="catalogo.html" data-nav="catalogo">Catálogo</a><a href="catalogo.html?op=venta" data-nav="venta">En venta</a><a href="catalogo.html?op=renta" data-nav="renta">En renta</a><a href="catalogo.html?tipo=casa" data-nav="casa">Casas</a><a href="catalogo.html?tipo=departamento" data-nav="departamento">Departamentos</a><a href="catalogo.html?tipo=terreno" data-nav="terreno">Terrenos</a><a href="catalogo.html?tipo=nave" data-nav="nave">Naves industriales</a><a href="zona.html" data-nav="zonas">Zonas</a><span class="sep" aria-hidden="true"></span><a href="vender.html" data-nav="vender" aria-current="page">Propietarios</a><a href="tienda.html#creditos" data-nav="creditos">Créditos</a><a href="tienda.html#nosotros" data-nav="nosotros">Nosotros</a></div></nav>
+</header>
+<main id="main" class="owners">
+  <section class="page-hero o-hero" aria-labelledby="h-v">
+    <div class="wrap o-hero-in">
+      <div>
+        <nav class="crumbs light" aria-label="Ruta de navegación"><a href="tienda.html">Inicio</a><span>/</span><b aria-current="page">Propietarios</b></nav>
+        <p class="eyebrow light">Para propietarios en Reynosa</p>
+        <h1 id="h-v">¿Tienes una casa o un terreno <em>para rentar o vender?</em></h1>
+        <p class="o-lead">Nosotros buscamos al inquilino o al comprador, atendemos a cada interesado y coordinamos las visitas. Tú decides el precio y, en un reporte privado en línea, ves cuántas personas preguntaron, quién fue a verla y qué opinaron.</p>
+        <div class="o-pick" role="group" aria-label="¿Qué quieres hacer?">
+          <a class="btn btn-gold" href="#solicitud" data-want="renta">Quiero rentarla</a>
+          <a class="btn btn-line-w" href="#solicitud" data-want="venta">Quiero venderla</a>
+          <a class="btn btn-wa" href="#" data-wa-link data-wa-text="Hola, tengo una propiedad y quiero rentarla o venderla con ustedes." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.1-.3.3-.1.5.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg><span>WhatsApp</span></a>
+        </div>
+        <ul class="o-trust"><li>Te contestamos el mismo día</li><li>Reporte en línea de tu propiedad</li><li>Estimación sin compromiso</li></ul>
+        <div class="o-rev" data-greviews hidden></div>
+      </div>
+      <div class="o-est card-form" id="estimador" role="region" aria-labelledby="h-est">
+        <p class="eyebrow">Referencia al instante</p>
+        <h2 id="h-est">¿Cuánto podrías <em>cobrar?</em></h2>
+        <form id="est-form" novalidate>
+          <div class="seg seg-light o-seg" role="group" aria-label="Operación"><button type="button" class="on" data-eop="renta" aria-pressed="true">Renta mensual</button><button type="button" data-eop="venta" aria-pressed="false">Venta</button></div>
+          <div class="grid2">
+            <div class="field"><label for="e-type">Tipo</label><select id="e-type"></select></div>
+            <div class="field"><label for="e-zone">Zona</label><select id="e-zone"><option value="">Toda Reynosa</option></select></div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label for="e-m2" id="e-m2-l">Construcción (m²)</label><input id="e-m2" inputmode="decimal" placeholder="Ej. 120"></div>
+            <div class="field"><label for="e-beds">Recámaras</label><select id="e-beds"><option value="">—</option><option>1</option><option>2</option><option>3</option><option value="4">4 o más</option></select></div>
+          </div>
+          <button class="btn btn-navy" type="submit" style="width:100%">Ver rango de referencia</button>
+        </form>
+        <div class="o-res" id="est-res" hidden aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="hechas" hidden aria-labelledby="h-done">
+    <div class="wrap">
+      <header class="sec-h row"><div><h2 id="h-done">Lo que ya rentamos y vendimos</h2><p>Propiedades que encontraron inquilino o comprador con nosotros, y cuánto tardaron desde que se publicaron.</p></div></header>
+      <div class="done-grid" id="done-grid"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="buscamos" hidden aria-labelledby="h-want">
+    <div class="wrap">
+      <header class="sec-h row"><div><h2 id="h-want">Lo que nos están pidiendo</h2><p>Si tienes algo así, podemos presentarte con interesados desde ya.</p></div></header>
+      <div class="wants" id="wants"></div>
+    </div>
+  </section>
+
+  <section class="sec alt" aria-labelledby="h-ben">
+    <div class="wrap">
+      <header class="sec-h"><h2 id="h-ben">Qué hacemos por tu propiedad</h2>
+        <div class="seg seg-light o-tabs" role="tablist" aria-label="Rentar o vender"><button type="button" role="tab" class="on" aria-selected="true" data-otab="renta">Si la rentas</button><button type="button" role="tab" aria-selected="false" data-otab="venta">Si la vendes</button></div>
+      </header>
+      <div class="ben-wrap">
+        <div class="ben-panes">
+      <div class="benefits" data-opane="renta">
+        <div class="benefit" style="--d:0ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4"/><circle cx="12" cy="12" r="3.5"/></svg></span><h3>Renta de referencia</h3><p>Te decimos cuánto se está pidiendo por propiedades parecidas en tu zona para que fijes una renta que se mueva.</p></div>
+        <div class="benefit" style="--d:80ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg></span><h3>Fotos y ficha completa</h3><p>Le tomamos fotos, la medimos y la publicamos en el catálogo, en redes y por WhatsApp.</p></div>
+        <div class="benefit" style="--d:160ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M6 12h12M10 18h4"/></svg></span><h3>Filtro de interesados</h3><p>Contestamos las preguntas, le pedimos identificación y comprobantes al interesado y solo te presentamos a quien va en serio.</p></div>
+        <div class="benefit" style="--d:0ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 14l2 2 4-4"/></svg></span><h3>Contrato claro</h3><p>Armamos contigo el contrato de renta: plazo, depósito, aumentos y quién paga qué.</p></div>
+        <div class="benefit" style="--d:80ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h3>Entrega con inventario</h3><p>Al entregar la propiedad se registra su estado con fotos, para que al final no haya discusiones.</p></div>
+        <div class="benefit" style="--d:160ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></span><h3>Reporte en línea</h3><p>Un enlace privado donde ves cuántas personas vieron tu propiedad, cuántas preguntaron y cuántas la visitaron.</p></div>
+      </div>
+      <div class="benefits" data-opane="venta" hidden>
+        <div class="benefit" style="--d:0ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></span><h3>Estimación de valor</h3><p>Analizamos la zona, el tipo y el estado de tu propiedad para proponerte un precio de salida realista.</p></div>
+        <div class="benefit" style="--d:80ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 14l2 2 4-4"/></svg></span><h3>Revisión de documentos</h3><p>Antes de publicar revisamos escritura, adeudos y lo que el comprador va a pedir.</p></div>
+        <div class="benefit" style="--d:160ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg></span><h3>Ficha completa</h3><p>Le tomamos fotos, la medimos y la publicamos en el catálogo con todos sus datos.</p></div>
+        <div class="benefit" style="--d:0ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="9"/></svg></span><h3>Difusión</h3><p>La subimos al catálogo y se la mandamos a la gente que nos pidió algo parecido.</p></div>
+        <div class="benefit" style="--d:80ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M6 12h12M10 18h4"/></svg></span><h3>Interesados reales</h3><p>Confirmamos el interés y la forma de pago (contado o crédito) antes de agendar visitas.</p></div>
+        <div class="benefit" style="--d:160ms"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg></span><h3>Hasta la firma</h3><p>Te acompañamos en la negociación, el contrato y la firma ante notario.</p></div>
+      </div>
+        </div>
+      <figure class="rep-mock">
+        <div class="rm-bar" aria-hidden="true"><span class="rm-dots"><i></i><i></i><i></i></span><span class="rm-url">Tu enlace privado</span></div>
+        <div class="rm-body">
+          <p class="rm-k">Así se ve tu reporte en línea</p>
+          <b class="rm-t">Casa en renta · Zona Norte</b>
+          <div class="rm-stats"><div><b>248</b><span>vistas en 30 días</span></div><div><b>17</b><span>preguntaron por WhatsApp</span></div><div><b>5</b><span>visitas</span></div></div>
+          <svg class="rm-chart" viewBox="0 0 300 64" preserveAspectRatio="none" aria-hidden="true"><rect x="1.0" y="52.0" width="8.0" height="12.0" rx="1.5"/><rect x="11.0" y="44.0" width="8.0" height="20.0" rx="1.5"/><rect x="21.0" y="48.0" width="8.0" height="16.0" rx="1.5"/><rect x="31.0" y="40.0" width="8.0" height="24.0" rx="1.5"/><rect x="41.0" y="28.0" width="8.0" height="36.0" rx="1.5"/><rect x="51.0" y="36.0" width="8.0" height="28.0" rx="1.5"/><rect x="61.0" y="44.0" width="8.0" height="20.0" rx="1.5"/><rect x="71.0" y="32.0" width="8.0" height="32.0" rx="1.5"/><rect x="81.0" y="16.0" width="8.0" height="48.0" rx="1.5"/><rect x="91.0" y="24.0" width="8.0" height="40.0" rx="1.5"/><rect x="101.0" y="36.0" width="8.0" height="28.0" rx="1.5"/><rect x="111.0" y="40.0" width="8.0" height="24.0" rx="1.5"/><rect x="121.0" y="28.0" width="8.0" height="36.0" rx="1.5"/><rect x="131.0" y="20.0" width="8.0" height="44.0" rx="1.5"/><rect x="141.0" y="8.0" width="8.0" height="56.0" rx="1.5"/><rect x="151.0" y="28.0" width="8.0" height="36.0" rx="1.5"/><rect x="161.0" y="32.0" width="8.0" height="32.0" rx="1.5"/><rect x="171.0" y="24.0" width="8.0" height="40.0" rx="1.5"/><rect x="181.0" y="12.0" width="8.0" height="52.0" rx="1.5"/><rect x="191.0" y="16.0" width="8.0" height="48.0" rx="1.5"/><rect x="201.0" y="28.0" width="8.0" height="36.0" rx="1.5"/><rect x="211.0" y="36.0" width="8.0" height="28.0" rx="1.5"/><rect x="221.0" y="20.0" width="8.0" height="44.0" rx="1.5"/><rect x="231.0" y="4.0" width="8.0" height="60.0" rx="1.5"/><rect x="241.0" y="16.0" width="8.0" height="48.0" rx="1.5"/><rect x="251.0" y="24.0" width="8.0" height="40.0" rx="1.5"/><rect x="261.0" y="28.0" width="8.0" height="36.0" rx="1.5"/><rect x="271.0" y="12.0" width="8.0" height="52.0" rx="1.5"/><rect x="281.0" y="0.0" width="8.0" height="64.0" rx="1.5"/><rect x="291.0" y="16.0" width="8.0" height="48.0" rx="1.5"/></svg>
+          <ul class="rm-log"><li><b>Hace 2 días</b><span>Visita de una familia. Les gustó la cocina; preguntaron por el depósito.</span></li><li><b>Hace 6 días</b><span>Se publicó en el catálogo con 14 fotos.</span></li></ul>
+        </div>
+        <figcaption>Ejemplo con datos ficticios. Tu reporte muestra los números reales de tu propiedad.</figcaption>
+      </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="solicitud" aria-labelledby="h-sol">
+    <div class="wrap two o-form-wrap">
+      <div>
+        <p class="eyebrow">Toma 2 minutos</p>
+        <h2 id="h-sol">Cuéntanos de <em>tu propiedad</em></h2>
+        <p>Con estos datos te preparamos una propuesta: precio sugerido, cómo la promovemos y qué documentos vas a necesitar.</p>
+        <ol class="o-next"><li><b>Te llamamos</b> en el horario que elijas.</li><li><b>Visitamos</b> la propiedad y revisamos documentos.</li><li><b>La publicamos</b> con fotos y te mandamos tu enlace de seguimiento.</li></ol>
+        <p class="note">No pedimos la dirección exacta todavía. La estimación es una referencia comercial; no sustituye un avalúo formal hecho por un perito valuador.</p>
+      </div>
+      <form class="card-form wiz" id="wiz" novalidate>
+        <div class="wiz-bar" aria-hidden="true"><i></i></div>
+        <p class="wiz-step" id="wiz-step">Paso 1 de 3</p>
+        <fieldset data-step="1">
+          <legend>Tu propiedad</legend>
+          <div class="field"><span class="lbl">Quiero</span><div class="chips" role="radiogroup" aria-label="Quiero">
+            <label class="chip"><input type="radio" name="operacion" value="Rentar" checked><span>Rentarla</span></label>
+            <label class="chip"><input type="radio" name="operacion" value="Vender"><span>Venderla</span></label>
+            <label class="chip"><input type="radio" name="operacion" value="Rentar o vender"><span>Lo que convenga</span></label></div></div>
+          <div class="grid2">
+            <div class="field"><label for="w-type">Tipo</label><select id="w-type" name="tipo"></select></div>
+            <div class="field"><label for="w-zone">Colonia o zona</label><input id="w-zone" name="zona" list="w-zones" placeholder="Ej. Zona Norte" autocomplete="off"><datalist id="w-zones"></datalist></div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label for="w-m2">Construcción (m²)</label><input id="w-m2" name="m2_aprox" inputmode="decimal" placeholder="Opcional"></div>
+            <div class="field"><label for="w-land">Terreno (m²)</label><input id="w-land" name="m2_terreno" inputmode="decimal" placeholder="Opcional"></div>
+          </div>
+          <div class="grid2" data-for="casa departamento">
+            <div class="field"><label for="w-beds">Recámaras</label><select id="w-beds" name="recamaras"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option value="5 o más">5 o más</option></select></div>
+            <div class="field"><label for="w-baths">Baños</label><select id="w-baths" name="banos"><option value="">—</option><option>1</option><option>1.5</option><option>2</option><option>2.5</option><option value="3 o más">3 o más</option></select></div>
+          </div>
+        </fieldset>
+        <fieldset data-step="2" hidden>
+          <legend>Lo que esperas</legend>
+          <div class="field"><label for="w-price" id="w-price-l">Renta que esperas al mes (opcional)</label><input id="w-price" name="precio_esperado" inputmode="decimal" placeholder="Ej. 9,500"><span class="hint" id="w-price-h"></span></div>
+          <div class="grid2">
+            <div class="field"><label for="w-free">¿Está desocupada?</label><select id="w-free" name="desocupada"><option value="">—</option><option>Sí, ya está libre</option><option>Se desocupa pronto</option><option>No, está habitada</option></select></div>
+            <div class="field" data-for-op="Rentar"><label for="w-furn">¿Amueblada?</label><select id="w-furn" name="amueblada"><option value="">—</option><option>No</option><option>Semiamueblada</option><option>Sí</option></select></div>
+          </div>
+          <div class="grid2">
+            <div class="field"><label for="w-ads">¿Ya está anunciada?</label><select id="w-ads" name="anunciada"><option value="">—</option><option>No</option><option>Sí, por mi cuenta</option><option>Sí, con otra inmobiliaria</option></select></div>
+            <div class="field"><label for="w-debt">¿Tiene adeudos o crédito?</label><select id="w-debt" name="adeudos"><option value="">—</option><option>No</option><option>Sí</option><option>No sé</option></select></div>
+          </div>
+          <div class="field"><label for="w-msg">Algo más que debamos saber (opcional)</label><textarea id="w-msg" name="message" maxlength="1000" placeholder="Estado de la propiedad, servicios, por qué la rentas o vendes…"></textarea></div>
+        </fieldset>
+        <fieldset data-step="3" hidden>
+          <legend>Tus datos</legend>
+          <div class="field"><label for="w-name">Nombre</label><input id="w-name" name="full_name" autocomplete="name" required></div>
+          <div class="grid2">
+            <div class="field"><label for="w-phone">Teléfono / WhatsApp</label><input id="w-phone" name="phone" type="tel" autocomplete="tel" required></div>
+            <div class="field"><label for="w-email">Correo (opcional)</label><input id="w-email" name="email" type="email" autocomplete="email"></div>
+          </div>
+          <div class="field"><label for="w-time">¿Cuándo te llamamos?</label><select id="w-time" name="horario"><option value="">Cuando puedan</option><option>Mañana (9 a 12)</option><option>Mediodía (12 a 3)</option><option>Tarde (3 a 7)</option><option>Solo por WhatsApp</option></select></div>
+          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="check"><input type="checkbox" name="privacy" required><span>Acepto el <a href="terminos.html#privacidad" target="_blank" rel="noopener">aviso de privacidad</a>.</span></label>
+        </fieldset>
+        <div class="wiz-act"><button class="btn btn-line" type="button" id="wiz-back" hidden>← Atrás</button><button class="btn btn-gold" type="submit" id="wiz-next">Siguiente</button></div>
+        <p class="form-msg" role="status" id="wiz-msg"></p>
+        <div class="wiz-done" id="wiz-done" hidden>
+          <div class="big" aria-hidden="true">✓</div>
+          <h3>¡Listo! Recibimos los datos de tu propiedad</h3>
+          <p>Te contactamos en el horario que elegiste. Si quieres adelantar, mándanos unas fotos por WhatsApp.</p>
+          <a class="btn btn-wa" id="wiz-wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.1-.3.3-.1.5.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg><span>Mandar fotos por WhatsApp</span></a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec alt" aria-labelledby="h-vp">
+    <div class="wrap">
+      <header class="sec-h"><h2 id="h-vp">Cómo trabajamos con propietarios</h2></header>
+      <ol class="steps">
+        <li><span class="n">1</span><h3>Cuéntanos</h3><p>Llena la solicitud o escríbenos con los datos básicos de tu propiedad.</p></li>
+        <li><span class="n">2</span><h3>Revisamos</h3><p>Visitamos la propiedad, revisamos documentos y te proponemos precio o renta.</p></li>
+        <li><span class="n">3</span><h3>Publicamos</h3><p>Preparamos la ficha con fotos y la promovemos. Te mandamos tu enlace de seguimiento.</p></li>
+        <li><span class="n">4</span><h3>Cerramos</h3><p>Filtramos interesados, coordinamos visitas y te acompañamos hasta la firma.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-docs">
+    <div class="wrap two">
+      <div>
+        <p class="eyebrow">Ten esto a la mano</p>
+        <h2 id="h-docs">Papeles que normalmente se piden</h2>
+        <p class="muted-p">Los requisitos exactos dependen de cada operación. Si te falta algo, te orientamos.</p>
+      </div>
+      <ul class="docs">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><span>Escritura de la propiedad o el documento que acredite que es tuya.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><span>Identificación oficial del propietario.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><span>Recibos de predial y agua al corriente.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><span>Planos o medidas, si los tienes.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><span>Para vender con crédito vigente: la carta de saldo de la institución.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><span>En terrenos y naves: uso de suelo y servicios disponibles.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec alt" id="recomienda" aria-labelledby="h-ref">
+    <div class="wrap two">
+      <div>
+        <p class="eyebrow">Recomienda y gana</p>
+        <h2 id="h-ref">¿Conoces a alguien que quiera <em>rentar o vender?</em></h2>
+        <p id="ref-reward">Pásanos sus datos y nosotros lo contactamos. Te lo agradecemos: pregunta por las condiciones de nuestro programa de recomendación.</p>
+        <ul class="ticks"><li>Solo recomienda a alguien que esté de acuerdo en que le llamemos</li><li>Te avisamos cuando lo contactemos</li></ul>
+      </div>
+      <form class="card-form" id="ref-form" novalidate>
+        <h3>Datos de la recomendación</h3>
+        <div class="grid2">
+          <div class="field"><label for="r-name">Tu nombre</label><input id="r-name" name="recomienda" autocomplete="name" required></div>
+          <div class="field"><label for="r-phone">Tu teléfono</label><input id="r-phone" name="recomienda_tel" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="grid2">
+          <div class="field"><label for="r-oname">Nombre del propietario</label><input id="r-oname" name="full_name" required autocomplete="off"></div>
+          <div class="field"><label for="r-ophone">Teléfono del propietario</label><input id="r-ophone" name="phone" type="tel" required autocomplete="off"></div>
+        </div>
+        <div class="field"><label for="r-what">¿Qué tiene y dónde?</label><input id="r-what" name="message" placeholder="Ej. Casa en renta en Las Fuentes" maxlength="300"></div>
+        <label class="check"><input type="checkbox" name="consent" required><span>Esta persona sabe que la van a contactar y está de acuerdo.</span></label>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="check"><input type="checkbox" name="privacy" required><span>Acepto el <a href="terminos.html#privacidad" target="_blank" rel="noopener">aviso de privacidad</a>.</span></label>
+        <button class="btn btn-gold" type="submit">Enviar recomendación</button>
+        <p class="form-msg" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-vfaq">
+    <div class="wrap narrow">
+      <header class="sec-h"><p class="eyebrow">Dudas de propietarios</p><h2 id="h-vfaq">Preguntas <em>frecuentes</em></h2></header>
+      <div class="faq"><details><summary>¿Cuánto cobran?</summary><p>La comisión depende del tipo de operación (venta o renta) y se acuerda por escrito antes de firmar cualquier contrato. Te la explicamos desde la primera llamada, sin letras chiquitas.</p></details><details><summary>¿Tiene que ser en exclusiva?</summary><p>Podemos trabajar con o sin exclusiva. Te explicamos las diferencias para que elijas lo que más te conviene.</p></details><details><summary>¿Cómo me entero de cómo va mi propiedad?</summary><p>Te mandamos un enlace privado donde ves, cuando quieras, cuántas personas vieron tu propiedad, cuántas pidieron informes y cuántas visitas hubo, con los comentarios de tu asesor.</p></details><details><summary>¿Necesito estar presente en las visitas?</summary><p>No es necesario. Coordinamos las visitas contigo y te contamos cómo fue cada una.</p></details><details><summary>¿También manejan terrenos y naves industriales?</summary><p>Sí. Para terrenos registramos frente, fondo, uso de suelo y servicios; para naves, altura libre, andenes y capacidad eléctrica. También los promovemos en inglés para empresas extranjeras.</p></details><details><summary>¿Qué pasa con mis datos?</summary><p>Solo los usamos para atender tu solicitud. Consulta el <a href="terminos.html#privacidad">aviso de privacidad</a>.</p></details></div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0" aria-label="Contacto">
+    <div class="wrap"><div class="cta cta-navy"><h2>¿Prefieres <em>platicarlo?</em></h2><p>Escríbenos y te llamamos en el horario que te acomode.</p><div class="cta-act"><a class="btn btn-wa" href="#" data-wa-link data-wa-text="Hola, tengo una propiedad y quiero rentarla o venderla con ustedes." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.1-.3.3-.1.5.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg><span>Escribir por WhatsApp</span></a><a class="btn btn-line-w" href="#solicitud">Llenar la solicitud</a></div></div></div>
+  </section>
+</main>
+<footer class="ftr">
+  <div class="wrap ftr-top">
+    <div class="ftr-brand"><strong class="ftr-logo">INMOBILIARIA <span>CRUMEX</span></strong><p>Venta y renta de casas, departamentos, terrenos y naves industriales en Reynosa, Tamaulipas.</p><div class="ftr-rev" data-greviews hidden></div></div>
+    <div class="ftr-cta"><a class="btn btn-wa" href="#" data-wa-link><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.1-.3.3-.1.5.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg><span>Escribir por WhatsApp</span></a><a class="ftr-phone" href="tel:+528992179269" data-phone><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h3l2 5-2.5 1.5a11 11 0 0 0 7 7L16 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg><span>899 217 9269</span></a></div>
+  </div>
+  <div class="wrap ftr-in">
+    <div><h2 class="ftr-h">Propiedades</h2><a href="catalogo.html">Todo el catálogo</a><a href="catalogo.html?op=venta">En venta</a><a href="catalogo.html?op=renta">En renta</a><a href="catalogo.html?tipo=nave">Naves industriales</a><a href="catalogo.html?tipo=terreno">Terrenos</a><a href="zona.html">Zonas de Reynosa</a><a href="industrial.html" hreflang="en" lang="en">Industrial space (English)</a></div>
+    <div><h2 class="ftr-h">Propietarios</h2><a href="vender.html">Renta o vende tu propiedad</a><a href="vender.html#estimador">¿Cuánto puedo cobrar?</a><a href="vender.html#recomienda">Recomienda un propietario</a></div>
+    <div><h2 class="ftr-h">Te orientamos</h2><a href="tienda.html#creditos">Créditos</a><a href="tienda.html#pasos">Cómo trabajamos</a><a href="guias.html">Guías</a><a href="tienda.html#contacto">Escríbenos</a></div>
+    <div class="ftr-office"><h2 class="ftr-h">Oficina</h2><p>Reynosa, Tamaulipas, México</p><p id="ftr-addr" hidden></p><p id="ftr-hours" hidden></p><p class="small" id="ftr-license"></p><p class="small" id="ftr-company" hidden></p><div class="ftr-social" id="ftr-social"></div></div>
+  </div>
+  <div class="wrap ftr-note"><p><strong>Importante:</strong> precios en pesos mexicanos (MXN) salvo que se indique otra moneda. Precios, medidas y disponibilidad pueden cambiar sin previo aviso y se confirman por escrito antes de cualquier operación. Las imágenes son ilustrativas. <a href="terminos.html">Leer los términos completos</a>.</p></div>
+  <div class="wrap ftr-bottom"><small>© <span data-year>2026</span> INMOBILIARIA CRUMEX. Todos los derechos reservados.</small><nav aria-label="Legal"><a href="terminos.html#terminos">Términos de uso</a><a href="terminos.html#privacidad">Aviso de privacidad</a></nav></div>
+</footer>
+<nav class="bnav" aria-label="Navegación inferior">
+  <a href="tienda.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span>Inicio</span></a>
+  <a href="catalogo.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg><span>Catálogo</span></a>
+  <button type="button" data-open-favs><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>Favoritas</span><span class="dot" data-fav-count hidden>0</span></button>
+  <a class="wa" href="#" data-wa-link target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.1-.3.3-.1.5.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg><span>WhatsApp</span></a>
+</nav>
+<div role="region" aria-label="Contacto por WhatsApp"><a class="fab" id="fab" href="#" data-wa-link target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.1-.3.3-.1.5.2.3.8 1.3 1.8 2.1 1.2 1.1 2.2 1.4 2.5 1.6.3.1.4.1.6-.1l.8-1c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
+<button class="totop" id="totop" type="button" aria-label="Volver arriba" hidden>↑</button></div>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-labelledby="dr-title" hidden>
+  <div class="drawer-h"><h3 id="dr-title">Mis favoritas <span class="badge gold" data-fav-count>0</span></h3><button class="x" id="dr-close" type="button" aria-label="Cerrar">×</button></div>
+  <div class="drawer-b" id="fav-list"></div>
+  <div class="drawer-f" id="fav-foot" hidden>
+    <a class="btn btn-wa" id="fav-send" href="#" target="_blank" rel="noopener">Preguntar por mi lista en WhatsApp</a>
+    <button class="btn btn-line btn-sm" id="fav-clear" type="button">Vaciar la lista</button>
+  </div>
+</aside>
+<script src="js/config.js"></script>
+<script src="js/util.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/listing.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/propietarios.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E1E33">
+<title>Ficha técnica | INMOBILIARIA CRUMEX</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/bodoni-moda-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/ficha.css">
+</head>
+<body class="ficha-page">
+<div class="f-bar no-print" role="region" aria-label="Acciones de la ficha">
+  <a class="f-back" id="f-back" href="catalogo.html">← <span id="f-back-t">Volver a la propiedad</span></a>
+  <span class="f-hint" id="f-hint">En el cuadro de impresión elige “Guardar como PDF”.</span>
+  <button class="btn btn-gold btn-sm" id="f-print" type="button" disabled>Imprimir o guardar PDF</button>
+</div>
+<main class="sheet" id="sheet"><p class="f-loading" id="f-loading">Cargando ficha…</p></main>
+<script src="js/config.js"></script>
+<script src="js/util.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/listing.js"></script>
+<script src="js/vendor/qrcode.js"></script>
+<script src="js/ficha.js"></script>
+</body>
+</html>
